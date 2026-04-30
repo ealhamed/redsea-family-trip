@@ -35,3 +35,19 @@ The Red Sea EDITION official dining pages list four venues: Central, Jiwa Terrac
 IHG's InterContinental The Red Sea Resort dining page lists Chimes, Ardo South American Cuisine, Darein, Murrma, and The 305. Chimes is a pool-area Mediterranean/international venue open 11:00 AM to 7:00 PM. Ardo is a seafront Peruvian/South American dinner venue listed as opening soon. Darein offers Levantine-Moroccan dining from breakfast through dinner. Murrma is an upper-lobby specialty coffee and sweets venue open 11:00 AM to 11:00 PM. The 305 is a seafront Miami Beach Club and cigar-lounge concept listed as opening soon.
 
 Image search candidates reviewed visually. The strongest replacement candidates are `/home/ubuntu/upload/search_images/tes4LOQdHCzj.jpg` for a warm, real SLS interior/resort venue image with strong horizontal composition, and `/home/ubuntu/upload/search_images/wIUgEocxVkFW.jpg` as a wider Shura Island resort-view fallback.
+
+
+## Room image inspection notes
+
+The uploaded `/home/ubuntu/upload/pasted_file_tLRmbS_image.png` is a usable lounge/room-style image at 1555×1088. It appears to show a seating area with SLS-style textured wall treatment and is adequate for an in-app suite/living-area visual without paid upscaling.
+
+The uploaded `/home/ubuntu/upload/pasted_file_CYXRkj_image.png` is not suitable for the app because it is a booking confirmation screenshot and visibly contains booking reference and room-total information. It should not be uploaded or displayed in the family-facing interface.
+
+
+## Nearby hotel restaurant-only findings for activity cards
+
+The Red Sea EDITION official dining page lists Central, Jiwa Terrace, Lobby, and Jiwa Beach Club. Central is positioned as a three-meal American comfort-food venue inspired by Grand Central Station, with breakfast 7:00 AM–11:00 AM, lunch 12:00 PM–1:00 PM, and dinner 6:00 PM–11:00 PM. Jiwa Terrace is a poolside Indonesian-leaning venue open 11:00 AM–7:00 PM. Lobby is an open-air gathering place for pastries, tea infusions, fruit juices, zero cocktails, Aperi-Tea, and evening lounge energy, open 11:00 AM–9:00 PM. Jiwa Beach Club is a Bali-inspired seaside dining and entertainment venue serving Southeast Asian cuisine, open 6:00 PM–11:00 PM.
+
+The InterContinental The Red Sea Resort official dining page lists Chimes, Ardo South American Cuisine, Darein, Murrma, and The 305. Chimes is pool-area Mediterranean/international dining open 11:00 AM–7:00 PM, suited to relaxed lunch or early evening. Darein is a Levantine-Moroccan all-day dining venue with breakfast 7:00 AM–11:30 AM, lunch 1:00 PM–4:00 PM, and dinner 6:00 PM–11:00 PM. Murrma is an upper-lobby specialty coffee and sweets venue open 11:00 AM–11:00 PM. Ardo and The 305 are described as set to open soon, so they should be tagged as “verify opening” rather than primary recommendations for the May 2026 itinerary.
+
+Implementation decision: remove nearby-hotel side-quest cards. Treat these hotels only as evaluated restaurant activity options in the activity/dining board, each with Quick add controls so the family can decide which restaurant enters Kids, Parents, or Both schedules.

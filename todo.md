@@ -63,3 +63,17 @@
 - [x] Ensure activities assigned to Both appear in both Kids and Parents columns.
 - [x] Preserve the Red Sea Coral Atlas visual identity, mobile readability, and hidden financial details.
 - [x] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.
+
+## Room photos, full-day timeline, and restaurant-only nearby hotels
+
+- [x] Inspect available room photos on the desktop or upload areas and assess whether their quality is usable for the app.
+- [x] If room photo quality is low, choose the lower-cost path between similar available imagery and upscaling.
+- [x] Replace the current suite/room imagery with the best room visuals available.
+- [x] Remove the nearby hotel side-quest section from the page and navigation.
+- [x] Add nearby hotel restaurants as evaluated activity options instead of standalone hotel cards.
+- [x] Include restaurant evaluation signals so the family can decide which restaurant to add to which schedule.
+- [x] Rebuild the schedule as a full timeline from 7:00 AM to 11:00 PM.
+- [x] Add breakfast, lunch, dinner, pool time, and clear empty gaps into the day view.
+- [x] Make Both-calendar activities appear as one large shared block spanning Kids and Parents columns.
+- [x] Preserve mobile readability, Red Sea Coral Atlas visual identity, and hidden financial details.
+- [x] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.

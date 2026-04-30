@@ -26,7 +26,7 @@ import {
 
 const heroImage = "/manus-storage/shura-island-aerial_a7dc46b4.jpg";
 const routeImage = "/manus-storage/tes4LOQdHCzj_c74d3079.jpg";
-const suiteImage = "/manus-storage/sls-redsea-bedroom_7cceef22.jpg";
+const suiteImage = "/manus-storage/pasted_file_tLRmbS_image_feb63a77.png";
 const suiteDetailImage = "/manus-storage/sls-redsea-suite-bedroom_dd3f74e9.jpg";
 const terraceImage = "/manus-storage/sls-redsea-bath-terrace_e67a4ad5.jpg";
 
@@ -116,15 +116,32 @@ const defaultChecklist: ChecklistItem[] = [
 ];
 
 const defaultSchedule: ScheduleBlock[] = [
-  { id: "wed-arrive", day: "Wed", startTime: "12:30", endTime: "13:30", calendar: "Both", title: "Arrive RSI", note: "Transfer to SLS via Shura causeway." },
-  { id: "wed-room", day: "Wed", startTime: "15:00", endTime: "16:30", calendar: "Both", title: "Suite reset", note: "Unpack, assign sleeping zones, keep evening easy." },
-  { id: "wed-dinner", day: "Wed", startTime: "18:30", endTime: "20:00", calendar: "Both", title: "Fi’lia or Deluxe", note: "Simple first-night dinner; family-friendly Italian or light bites." },
+  { id: "wed-breakfast", day: "Wed", startTime: "07:30", endTime: "08:15", calendar: "Both", title: "Home breakfast", note: "Keep the morning simple before airport movement." },
+  { id: "wed-flight", day: "Wed", startTime: "10:35", endTime: "12:30", calendar: "Both", title: "RUH → RSI flight", note: "Non-stop flight into Red Sea International Airport." },
+  { id: "wed-transfer", day: "Wed", startTime: "12:30", endTime: "14:00", calendar: "Both", title: "Arrival + transfer", note: "Transfer to SLS via Shura causeway; keep lunch flexible." },
+  { id: "wed-lunch", day: "Wed", startTime: "14:00", endTime: "15:00", calendar: "Both", title: "Late lunch / room snacks", note: "Use Deluxe, in-room dining, or a light first meal depending on arrival energy." },
+  { id: "wed-room", day: "Wed", startTime: "15:00", endTime: "16:30", calendar: "Both", title: "Suite reset", note: "Unpack, assign sleeping zones, and set beach kit by the door." },
+  { id: "wed-pool", day: "Wed", startTime: "16:45", endTime: "17:45", calendar: "Both", title: "Easy pool orientation", note: "Short first swim so the kids understand the resort without overloading the day." },
+  { id: "wed-dinner", day: "Wed", startTime: "18:30", endTime: "20:00", calendar: "Both", title: "Fi’lia family dinner", note: "Comfortable first-night Italian table; confirm reservation timing." },
+  { id: "thu-breakfast", day: "Thu", startTime: "07:30", endTime: "08:30", calendar: "Both", title: "Breakfast", note: "Anchor the day before heat and activities build up." },
+  { id: "thu-pool", day: "Thu", startTime: "09:00", endTime: "10:15", calendar: "Both", title: "Pool + beach block", note: "Main water window before the day gets hot." },
   { id: "thu-kids", day: "Thu", startTime: "10:30", endTime: "12:30", calendar: "Kids", title: "Kids’ Club", note: "Workshops, crafts, outdoor games, or pool games depending on the daily programme." },
   { id: "thu-parents", day: "Thu", startTime: "10:30", endTime: "12:30", calendar: "Parents", title: "Ciel Spa / padel", note: "Parents can stack a wellness or active block while kids are supervised." },
+  { id: "thu-lunch", day: "Thu", startTime: "13:00", endTime: "14:00", calendar: "Both", title: "Lunch reset", note: "Use The Perch, Deluxe, or a nearby restaurant only if access is confirmed." },
+  { id: "thu-rest", day: "Thu", startTime: "14:00", endTime: "16:00", calendar: "Both", title: "Suite quiet time", note: "Intentional gap for showers, naps, screens, and heat avoidance." },
   { id: "thu-family", day: "Thu", startTime: "16:30", endTime: "17:30", calendar: "Both", title: "Kayak or paddleboard", note: "Keep it low-pressure and weather-dependent." },
+  { id: "thu-dinner", day: "Thu", startTime: "18:30", endTime: "20:00", calendar: "Both", title: "Dinner anchor", note: "Choose Fi’lia, Seabird, or one evaluated nearby hotel restaurant." },
+  { id: "fri-breakfast", day: "Fri", startTime: "07:30", endTime: "08:30", calendar: "Both", title: "Breakfast", note: "Leave space to decide between beach, pool, or club programme." },
+  { id: "fri-water", day: "Fri", startTime: "09:00", endTime: "10:30", calendar: "Both", title: "Snorkel / pool time", note: "Primary family water block; keep sunscreen and wet bags ready." },
+  { id: "fri-lunch", day: "Fri", startTime: "12:30", endTime: "13:30", calendar: "Both", title: "Lunch", note: "Use a calm venue; avoid stacking too much before evening." },
+  { id: "fri-gap", day: "Fri", startTime: "14:00", endTime: "16:30", calendar: "Both", title: "Open gap", note: "Deliberate white space for rest, photos, or concierge adjustments." },
   { id: "fri-kids", day: "Fri", startTime: "17:30", endTime: "19:00", calendar: "Kids", title: "Mini disco / cinema", note: "Check actual programme with concierge." },
   { id: "fri-parents", day: "Fri", startTime: "17:30", endTime: "19:00", calendar: "Parents", title: "Seabird golden hour", note: "Seafood-led dinner slot if available." },
-  { id: "sat-exit", day: "Sat", startTime: "10:30", endTime: "11:30", calendar: "Both", title: "Room sweep + checkout", note: "Quiet exit rhythm before RSI flight." },
+  { id: "fri-family-dinner", day: "Fri", startTime: "19:15", endTime: "20:30", calendar: "Both", title: "Family dinner fallback", note: "Use if kids join dinner instead of separate evening programming." },
+  { id: "sat-breakfast", day: "Sat", startTime: "07:30", endTime: "08:30", calendar: "Both", title: "Breakfast", note: "Final calm family meal before checkout." },
+  { id: "sat-pack", day: "Sat", startTime: "08:30", endTime: "10:15", calendar: "Both", title: "Packing + room sweep", note: "Use checklist, chargers, swimwear, passports, and comfort items." },
+  { id: "sat-exit", day: "Sat", startTime: "10:30", endTime: "11:30", calendar: "Both", title: "Checkout + transfer", note: "Quiet exit rhythm before RSI flight." },
+  { id: "sat-flight", day: "Sat", startTime: "13:15", endTime: "15:10", calendar: "Both", title: "RSI → RUH flight", note: "Return flight home." },
 ];
 
 const experiences = [
@@ -173,41 +190,19 @@ const experiences = [
 ];
 
 const restaurants = [
-  { name: "Fi’lia", cuisine: "Italian", bestFor: "First night / family table", book: "High", note: "Comfortable family option: handmade pasta, wood-fired pizza and easy sharing." },
-  { name: "Seabird", cuisine: "Seafood, Spanish-Portuguese", bestFor: "Golden-hour dinner", book: "Very high", note: "Strong choice for a special seafood-led evening." },
-  { name: "Floating World", cuisine: "Japanese-influenced", bestFor: "Parents’ dinner", book: "High", note: "Best kept for a quieter adults’ slot if kids are covered." },
-  { name: "The Perch", cuisine: "Poolside refreshments", bestFor: "Afternoon reset", book: "Medium", note: "Useful between pool, beach and kids club transitions." },
-  { name: "Deluxe", cuisine: "Café, pastries, light bites", bestFor: "Casual gaps", book: "Low", note: "Good for coffee, snacks and practical family downtime." },
-];
-
-const nearbyHotels = [
-  {
-    property: "SLS The Red Sea",
-    tag: "Your hotel",
-    tone: "sls",
-    headline: "Keep this as the family basecamp.",
-    bestFor: "Pools, Ciel Spa, beach time, gym, and the five SLS dining venues without leaving your home base.",
-    action: "Ask concierge on arrival to map Kids’ Club, spa, pool and dinner windows into one simple family rhythm.",
-    highlights: ["Three pools including rooftop options", "24/7 gym and spa", "Fi’lia, Seabird, Floating World, The Perch, Deluxe"],
-  },
-  {
-    property: "The Red Sea EDITION",
-    tag: "Nearby",
-    tone: "edition",
-    headline: "Use it for one stylish off-base dining moment.",
-    bestFor: "Jiwa Beach Club for an evening couple plan, Jiwa Terrace for poolside lunch, Central for an easy three-meal fallback, and Lobby for tea or an evening lounge feel.",
-    action: "Reserve ahead through concierge, especially for Jiwa Beach Club or any evening slot.",
-    highlights: ["Jiwa Beach Club: Southeast Asian evening energy", "Jiwa Terrace: Indonesian poolside lunch", "Lobby: Aperi-Tea and weekend reception"],
-  },
-  {
-    property: "InterContinental Red Sea Resort",
-    tag: "Nearby",
-    tone: "intercontinental",
-    headline: "Best for variety if you want another resort stop.",
-    bestFor: "Chimes for Mediterranean poolside dining, Darein for Levantine-Moroccan comfort, Murrma for coffee and sweets, with Ardo and The 305 to verify if open during the stay.",
-    action: "Ask SLS concierge to confirm cross-resort access and current opening status before adding it to the day plan.",
-    highlights: ["Chimes: Mediterranean poolside", "Darein: Levantine-Moroccan", "Murrma: specialty coffee and sweets"],
-  },
+  { title: "Fi’lia · SLS", tag: "SLS restaurant", priority: "High · family", cuisine: "Italian", bestFor: "First night / family table", evaluation: "Best safe family dinner", detail: "Comfortable family option: handmade pasta, wood-fired pizza and easy sharing without leaving SLS.", icon: Utensils },
+  { title: "Seabird · SLS", tag: "SLS restaurant", priority: "Very high · dinner", cuisine: "Seafood, Spanish-Portuguese", bestFor: "Golden-hour dinner", evaluation: "Strong special-night choice", detail: "A strong choice for a seafood-led evening when you want one polished dinner anchor.", icon: Utensils },
+  { title: "Floating World · SLS", tag: "SLS restaurant", priority: "High · parents", cuisine: "Japanese-influenced", bestFor: "Parents’ dinner", evaluation: "Better for adults", detail: "Best kept for a quieter adults’ slot if kids are covered by club, cinema, or room downtime.", icon: Utensils },
+  { title: "The Perch · SLS", tag: "SLS restaurant", priority: "Medium · pool", cuisine: "Poolside refreshments", bestFor: "Afternoon reset", evaluation: "Useful gap filler", detail: "Useful between pool, beach and Kids’ Club transitions when you need low-friction food.", icon: Utensils },
+  { title: "Deluxe · SLS", tag: "SLS restaurant", priority: "Low · casual", cuisine: "Café, pastries, light bites", bestFor: "Breakfast gaps / snacks", evaluation: "Practical fallback", detail: "Good for coffee, pastries, snacks and practical family downtime without turning it into a formal meal.", icon: Utensils },
+  { title: "Central · EDITION", tag: "EDITION restaurant", priority: "Medium · flexible", cuisine: "American comfort food", bestFor: "Breakfast, lunch or dinner fallback", evaluation: "Best nearby all-day option", detail: "Three-meal restaurant open from breakfast through dinner; good if cross-resort access is easy and you want a reliable nearby fallback.", icon: Utensils },
+  { title: "Jiwa Terrace · EDITION", tag: "EDITION restaurant", priority: "Medium · lunch", cuisine: "Indonesian poolside", bestFor: "Lunch near pool energy", evaluation: "Good daytime option", detail: "Poolside lunch or late-afternoon idea with Indonesian influence; only add if it does not disrupt the SLS base rhythm.", icon: Utensils },
+  { title: "Jiwa Beach Club · EDITION", tag: "EDITION restaurant", priority: "High · evening", cuisine: "Southeast Asian beach club", bestFor: "Parents or older-kids dinner", evaluation: "Most distinctive nearby dinner", detail: "Bali-inspired seaside dining and music energy from 6 PM; better as a planned evening choice than a casual walk-in.", icon: Utensils },
+  { title: "Lobby · EDITION", tag: "EDITION restaurant", priority: "Low · lounge", cuisine: "Tea, pastries, zero cocktails", bestFor: "Tea / lounge gap", evaluation: "Good soft stop", detail: "Use for Aperi-Tea, pastries, and a short lounge stop if the day has extra space.", icon: Utensils },
+  { title: "Darein · InterContinental", tag: "InterContinental restaurant", priority: "Medium · family", cuisine: "Levantine-Moroccan", bestFor: "Breakfast, lunch or dinner", evaluation: "Best family-friendly IC option", detail: "All-day Levantine-Moroccan dining; the safest InterContinental candidate for a family restaurant add.", icon: Utensils },
+  { title: "Chimes · InterContinental", tag: "InterContinental restaurant", priority: "Medium · lunch", cuisine: "Mediterranean poolside", bestFor: "Poolside lunch", evaluation: "Good daytime option", detail: "Mediterranean pool-area dining from late morning to early evening; useful only if access is confirmed.", icon: Utensils },
+  { title: "Murrma · InterContinental", tag: "InterContinental restaurant", priority: "Low · coffee", cuisine: "Coffee and sweets", bestFor: "Coffee / dessert", evaluation: "Short stop, not a meal anchor", detail: "Upper-lobby specialty coffee and sweets; add as a light break rather than a core restaurant plan.", icon: Utensils },
+  { title: "Ardo / The 305 · InterContinental", tag: "Verify opening", priority: "Hold", cuisine: "South American / Miami Beach Club", bestFor: "Only if confirmed open", evaluation: "Do not schedule until verified", detail: "Official pages describe these as opening soon. Ask concierge before treating either as available for this trip.", icon: Utensils },
 ];
 
 function Pill({ children, tone = "sand" }: { children: React.ReactNode; tone?: "sand" | "green" | "coral" }) {
@@ -272,6 +267,26 @@ function ChecklistRow({ item, checked, onToggle, onRemove }: { item: ChecklistIt
   );
 }
 
+const timelineStartHour = 7;
+const timelineEndHour = 23;
+const timelineTicks = Array.from({ length: timelineEndHour - timelineStartHour + 1 }, (_, index) => `${String(timelineStartHour + index).padStart(2, "0")}:00`);
+const timelineRowCount = (timelineEndHour - timelineStartHour) * 2;
+
+function timeToRow(time: string) {
+  const [hours, minutes] = time.split(":").map(Number);
+  const totalMinutes = hours * 60 + minutes;
+  const startMinutes = timelineStartHour * 60;
+  const offset = Math.max(0, Math.min((timelineEndHour - timelineStartHour) * 60, totalMinutes - startMinutes));
+  return Math.round(offset / 30) + 2;
+}
+
+function blockStyle(block: ScheduleBlock) {
+  const startRow = timeToRow(block.startTime);
+  const endRow = Math.max(startRow + 1, timeToRow(block.endTime));
+  const gridColumn = block.calendar === "Both" ? "2 / 4" : block.calendar === "Kids" ? "2 / 3" : "3 / 4";
+  return { gridColumn, gridRow: `${startRow} / ${endRow}` };
+}
+
 function calendarForTag(tag: string): ScheduleCalendar {
   if (tag.toLowerCase().includes("parent") || tag.toLowerCase().includes("golf")) return "Parents";
   if (tag.toLowerCase().includes("kids") || tag.toLowerCase().includes("teens")) return "Kids";
@@ -316,15 +331,20 @@ function QuickAddActivity({ experience, selectedDay, onAdd }: { experience: (typ
   );
 }
 
-function ScheduleColumn({ label, blocks, onRemove }: { label: "Kids" | "Parents"; blocks: ScheduleBlock[]; onRemove: (id: string) => void }) {
-  const visibleBlocks = blocks.filter((block) => block.calendar === "Both" || block.calendar === label);
-
+function ScheduleTimeline({ blocks, onRemove }: { blocks: ScheduleBlock[]; onRemove: (id: string) => void }) {
   return (
-    <div className={`schedule-column schedule-column--${label.toLowerCase()}`}>
-      <h3>{label}</h3>
-      {visibleBlocks.length === 0 ? <p className="schedule-empty">No blocks yet. Use quick add below.</p> : null}
-      {visibleBlocks.map((block) => (
-        <article key={`${label}-${block.id}`} className={`schedule-block calendar-${block.calendar.toLowerCase()}`}>
+    <div className="schedule-day-board" aria-label="Full day family schedule from 7 AM to 11 PM">
+      <div className="schedule-board-header schedule-board-header--time">Time</div>
+      <div className="schedule-board-header">Kids</div>
+      <div className="schedule-board-header">Parents</div>
+      <div className="schedule-time-rail">
+        {timelineTicks.map((tick) => <span key={tick}>{tick}</span>)}
+      </div>
+      <div className="schedule-grid-lines" aria-hidden="true">
+        {Array.from({ length: timelineRowCount }).map((_, index) => <span key={index} />)}
+      </div>
+      {blocks.map((block) => (
+        <article key={block.id} className={`schedule-block calendar-${block.calendar.toLowerCase()} ${block.calendar === "Both" ? "schedule-block--both" : ""}`} style={blockStyle(block)}>
           <button onClick={() => onRemove(block.id)} aria-label={`Remove ${block.title}`}><Trash2 size={14} /></button>
           <span>{block.startTime}–{block.endTime}</span>
           <strong>{block.title}</strong>
@@ -460,7 +480,7 @@ export default function Home() {
       <section id="hotel" className="hotel-section container chron-section">
         <div className="hotel-card">
           <div className="hotel-card__image hotel-card__image-stack">
-            <img src={suiteImage} alt="Real SLS The Red Sea bedroom photograph" />
+            <img src={suiteImage} alt="Uploaded SLS The Red Sea suite living area photograph" />
             <img src={suiteDetailImage} alt="Real SLS The Red Sea suite bedroom photograph" />
             <img src={terraceImage} alt="Real SLS The Red Sea bath and terrace photograph" />
           </div>
@@ -476,34 +496,6 @@ export default function Home() {
               <span><ShieldCheck size={17} /> Private family view</span>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="nearby" className="nearby-section container chron-section">
-        <SectionHeader eyebrow="Hotel side quest" title="Explore nearby hotels without mixing the plan">
-          Keep SLS as home base, then add one clearly tagged nearby stop only if it improves the day. Each card separates the property, why to go, and the practical concierge action.
-        </SectionHeader>
-        <div className="nearby-grid">
-          {nearbyHotels.map((hotel) => (
-            <article key={hotel.property} className={`nearby-card nearby-card--${hotel.tone}`}>
-              <div className="nearby-card__top">
-                <span className="nearby-card__tag">{hotel.tag}</span>
-                <Hotel size={24} />
-              </div>
-              <h3>{hotel.property}</h3>
-              <strong>{hotel.headline}</strong>
-              <p>{hotel.bestFor}</p>
-              <div className="nearby-card__highlights">
-                {hotel.highlights.map((highlight) => (
-                  <span key={highlight}>{highlight}</span>
-                ))}
-              </div>
-              <div className="nearby-card__action">
-                <Utensils size={17} />
-                <span>{hotel.action}</span>
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -527,7 +519,7 @@ export default function Home() {
 
       <section id="schedule" className="schedule-section container chron-section">
         <SectionHeader eyebrow="04 · Hotel activities + schedule" title="One long day, split by Kids and Parents">
-          Use Quick add from the activity ideas below, choose beginning and end time, then decide whether the block applies to Both, Kids only, or Parents only. Both is the default family calendar.
+          The board now runs from 7 AM to 11 PM so gaps are visible. Meals, pool time and transfers are preloaded; when a block is assigned to Both, it spans across Kids and Parents as one shared family activity.
         </SectionHeader>
         <div className="schedule-shell">
           <div className="schedule-controls">
@@ -545,17 +537,7 @@ export default function Home() {
             <input placeholder="Optional note" value={activityForm.note} onChange={(event) => setActivityForm((current) => ({ ...current, note: event.target.value }))} />
             <button onClick={addScheduleBlock}><Plus size={16} /> Add</button>
           </div>
-          <div className="schedule-day-board" aria-label={`${selectedDay} family schedule`}>
-            <div className="schedule-time-rail">
-              <strong>{selectedDay}</strong>
-              <span>Morning</span>
-              <span>Midday</span>
-              <span>Afternoon</span>
-              <span>Evening</span>
-            </div>
-            <ScheduleColumn label="Kids" blocks={dayBlocks} onRemove={removeScheduleBlock} />
-            <ScheduleColumn label="Parents" blocks={dayBlocks} onRemove={removeScheduleBlock} />
-          </div>
+<ScheduleTimeline blocks={dayBlocks} onRemove={removeScheduleBlock} />
         </div>
 
         <div className="activity-shortlist">
@@ -563,7 +545,7 @@ export default function Home() {
             <Clock3 />
             <div>
               <h3>Activity ideas to add into the schedule</h3>
-              <p>Keep the day light: one core family activity, one kids/parents stacked block, and one dining anchor.</p>
+              <p>Keep the day readable: add one core family activity, one stacked kids/parents block, and one dining anchor only where it improves the flow.</p>
             </div>
           </div>
           <div className="experience-grid compact-grid">
@@ -586,21 +568,24 @@ export default function Home() {
         <div className="restaurant-board">
           <div className="restaurant-board__intro">
             <Utensils />
-            <h3>Dining anchors for the schedule</h3>
-            <p>Prioritize Seabird, Floating World and Fi’lia. Use Deluxe and The Perch as flexible gaps between pool, beach and kids club.</p>
+            <h3>Restaurant options to evaluate and add</h3>
+            <p>Nearby hotels are no longer side quests. Their restaurants now sit here as evaluated activity cards, so you can decide which table belongs in Kids, Parents, or Both schedules.</p>
           </div>
-          <div className="restaurant-table" role="table" aria-label="Restaurant booking recommendations">
-            {restaurants.map((restaurant) => (
-              <article key={restaurant.name} role="row">
-                <div>
-                  <strong>{restaurant.name}</strong>
-                  <span>{restaurant.cuisine}</span>
-                </div>
-                <div>{restaurant.bestFor}</div>
-                <div><Pill tone={restaurant.book === "Very high" ? "coral" : restaurant.book === "High" ? "green" : "sand"}>{restaurant.book}</Pill></div>
-                <p>{restaurant.note}</p>
-              </article>
-            ))}
+          <div className="experience-grid compact-grid restaurant-option-grid">
+            {restaurants.map((restaurant) => {
+              const Icon = restaurant.icon;
+              return (
+                <article key={restaurant.title} className="experience-card compact-card restaurant-option-card">
+                  <Icon />
+                  <Pill tone={restaurant.tag.includes("Verify") ? "coral" : restaurant.tag.includes("SLS") ? "green" : "sand"}>{restaurant.tag}</Pill>
+                  <h3>{restaurant.title}</h3>
+                  <strong>{restaurant.evaluation}</strong>
+                  <p><b>{restaurant.cuisine}</b> · {restaurant.bestFor}</p>
+                  <p>{restaurant.detail}</p>
+                  <QuickAddActivity experience={restaurant} selectedDay={selectedDay} onAdd={addBlockToSchedule} />
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
