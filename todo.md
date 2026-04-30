@@ -34,3 +34,13 @@
 - [ ] Keep financial and payment information hidden throughout the revised structure.
 - [ ] Preserve useful functions: editable checklist, stacked schedule planning, booking-priority notes, and real SLS/Shura imagery.
 - [ ] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.
+
+## iPhone 16 Pro Max mobile-first optimization
+
+- [ ] Rework the hero section for a 430px-wide mobile viewport so the title, ticket, and actions are readable without horizontal overflow.
+- [ ] Convert the top navigation into a touch-friendly horizontal rail with clear active spacing and 44px+ tap targets.
+- [ ] Stack all major chronological sections vertically on mobile: Flight, Hotel, Facilities, Activities/Schedule, Checklist.
+- [ ] Make the schedule builder usable on mobile by simplifying form controls, lane cards, and delete buttons.
+- [ ] Ensure checklist rows, inputs, select controls, and add buttons are thumb-friendly.
+- [ ] Reduce oversized typography and card padding on small screens while preserving Red Sea Coral Atlas visual identity.
+- [ ] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.

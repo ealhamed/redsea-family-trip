@@ -1624,3 +1624,465 @@
     flex-direction: column;
   }
 }
+
+/* iPhone 16 Pro Max mobile-first refinement: prioritize 430px-wide readability, thumb-sized controls, vertical chronology, and no horizontal overflow. */
+:root {
+  --mobile-gutter: clamp(1rem, 4.2vw, 1.35rem);
+  --mobile-touch: 48px;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+.trip-app {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.topbar a,
+.hero-actions a,
+.activity-form button,
+.add-checklist button,
+.schedule-controls button,
+.remove-check,
+.check-row {
+  min-height: var(--mobile-touch);
+  touch-action: manipulation;
+}
+
+input,
+select,
+button,
+a {
+  -webkit-tap-highlight-color: rgba(231, 83, 63, 0.18);
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: var(--mobile-gutter);
+    padding-right: var(--mobile-gutter);
+    max-width: 100%;
+  }
+
+  .hero-shell {
+    min-height: auto;
+    padding: max(1rem, env(safe-area-inset-top)) var(--mobile-gutter) 1.5rem;
+    display: block;
+  }
+
+  .hero-shell > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 56% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(7, 59, 76, 0.82), rgba(7, 59, 76, 0.48) 46%, rgba(255, 243, 216, 0.92)),
+      radial-gradient(circle at 80% 18%, rgba(121, 215, 219, 0.38), transparent 16rem);
+  }
+
+  .topbar {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    gap: 0.55rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    padding: calc(env(safe-area-inset-top) + 0.25rem) 0 0.8rem;
+    margin: 0 calc(var(--mobile-gutter) * -1) 1.4rem;
+    padding-left: var(--mobile-gutter);
+    padding-right: var(--mobile-gutter);
+    scrollbar-width: none;
+  }
+
+  .topbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .topbar a {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    background: rgba(255, 243, 216, 0.86);
+    color: #073b4c;
+    border: 1px solid rgba(255, 255, 255, 0.36);
+    box-shadow: 0 12px 28px rgba(7, 59, 76, 0.18);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    padding: 0;
+    min-height: 0;
+  }
+
+  .hero-copy {
+    padding-top: 1rem;
+  }
+
+  .hero-copy h1 {
+    max-width: 9ch;
+    font-size: clamp(3rem, 16vw, 4.85rem);
+    line-height: 0.88;
+    letter-spacing: -0.07em;
+    margin: 0.95rem 0 1rem;
+  }
+
+  .hero-copy p {
+    max-width: 32ch;
+    font-size: 1.02rem;
+    line-height: 1.62;
+    color: rgba(255, 250, 239, 0.94);
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    margin-top: 1.25rem;
+    width: min(100%, 23rem);
+  }
+
+  .hero-actions a {
+    width: 100%;
+    justify-content: center;
+    padding: 0.95rem 1rem;
+    font-size: 0.92rem;
+  }
+
+  .hero-ticket {
+    width: 100%;
+    margin: 0;
+    padding: 1.15rem;
+    border-radius: 0;
+    background: rgba(255, 250, 239, 0.94);
+    box-shadow: 0 24px 70px rgba(7, 59, 76, 0.2);
+  }
+
+  .hero-ticket h2 {
+    font-size: clamp(2.45rem, 13vw, 3.45rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+  }
+
+  .ticket-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .ticket-grid span {
+    min-height: 3rem;
+    padding: 0.65rem;
+    font-size: 0.78rem;
+  }
+
+  .chron-section,
+  .route-section,
+  .hotel-section,
+  .experiences-section,
+  .schedule-section,
+  .packing-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-heading {
+    margin-bottom: 1.1rem;
+  }
+
+  .section-heading span {
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    max-width: 11ch;
+  }
+
+  .section-heading p {
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .route-section,
+  .hotel-card,
+  .packing-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .route-visual,
+  .hotel-card__image,
+  .packing-image {
+    min-height: 13rem;
+    max-height: 18rem;
+    overflow: hidden;
+  }
+
+  .route-visual img,
+  .hotel-card__image img,
+  .packing-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hotel-card__image-stack {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 8rem;
+  }
+
+  .hotel-card__image-stack img:first-child {
+    grid-column: 1 / -1;
+    height: 10rem;
+  }
+
+  .route-content,
+  .hotel-card__content,
+  .packing-panel,
+  .schedule-shell,
+  .restaurant-board,
+  .activity-shortlist {
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .hotel-card__content h2 {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+    line-height: 0.98;
+    max-width: 11ch;
+  }
+
+  .hotel-details {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .flight-stack,
+  .experience-grid,
+  .compact-grid,
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+
+  .flight-card {
+    padding: 1rem;
+    border-radius: 0;
+  }
+
+  .flight-card__route {
+    grid-template-columns: 0.8fr 1.2fr 0.8fr;
+    gap: 0.6rem;
+  }
+
+  .flight-card__route strong {
+    font-size: 1rem;
+  }
+
+  .flight-card__route span {
+    font-size: 1.55rem;
+  }
+
+  .flight-card__meta {
+    display: grid;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+  }
+
+  .experience-card,
+  .facility-card,
+  .compact-card {
+    padding: 1rem;
+    border-radius: 0;
+    min-height: auto;
+  }
+
+  .experience-card h3,
+  .compact-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .schedule-controls {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.45rem;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    padding: 0.35rem 0 0.75rem;
+    background: linear-gradient(180deg, rgba(255, 250, 239, 0.98), rgba(255, 250, 239, 0.72));
+    backdrop-filter: blur(12px);
+  }
+
+  .schedule-controls button {
+    min-width: 0;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+  }
+
+  .activity-form,
+  .add-checklist {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .activity-form input,
+  .activity-form select,
+  .activity-form button,
+  .add-checklist input,
+  .add-checklist select,
+  .add-checklist button {
+    width: 100%;
+    min-height: var(--mobile-touch);
+    font-size: 1rem;
+    border-radius: 0;
+  }
+
+  .schedule-lanes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 1rem;
+  }
+
+  .schedule-lane {
+    padding: 0.9rem;
+    border-radius: 0;
+  }
+
+  .schedule-lane h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .schedule-block {
+    position: relative;
+    padding: 0.85rem 2.9rem 0.85rem 0.85rem;
+    border-radius: 0;
+  }
+
+  .schedule-block > button {
+    top: 0.5rem;
+    right: 0.5rem;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+  }
+
+  .activity-shortlist__header {
+    gap: 0.8rem;
+  }
+
+  .activity-shortlist__header h3 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+    line-height: 1;
+  }
+
+  .restaurant-board__intro {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: start;
+  }
+
+  .restaurant-board__intro h3 {
+    font-size: 1.35rem;
+    line-height: 1.05;
+  }
+
+  .restaurant-table {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .restaurant-table article {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+    padding: 0.95rem;
+    border-radius: 0;
+  }
+
+  .progress-shell {
+    height: 0.85rem;
+  }
+
+  .check-row-shell {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: stretch;
+    border-radius: 0;
+  }
+
+  .check-row {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.7rem;
+    row-gap: 0.25rem;
+    align-items: center;
+    padding: 0.85rem;
+    text-align: left;
+  }
+
+  .check-row em {
+    grid-column: 2;
+    justify-self: start;
+  }
+
+  .remove-check {
+    width: 3rem;
+    min-width: 3rem;
+  }
+
+  .trip-footer {
+    padding: 2rem var(--mobile-gutter) calc(2rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (min-width: 641px) and (max-width: 932px) {
+  .hero-content,
+  .route-section,
+  .hotel-card,
+  .packing-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(4.5rem, 12vw, 7rem);
+  }
+
+  .schedule-lanes,
+  .experience-grid,
+  .compact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
