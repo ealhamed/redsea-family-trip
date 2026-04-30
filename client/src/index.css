@@ -2,9 +2,9 @@
 @import "tw-animate-css";
 
 /**
- * Design philosophy: Red Sea Expedition Modernism.
- * Global styling must preserve a private premium travel-folio feeling: reef green, warm sand,
- * coral clay accents, tactile paper texture, elegant asymmetry, and high-contrast mobile readability.
+ * Design philosophy: Red Sea Coral Atlas.
+ * Global styling must feel unmistakably Red Sea: reef turquoise, coral red, warm sand,
+ * deep sea blue, sunset amber, coastal light, family-ready clarity, and high-contrast mobile readability.
  * Avoid generic centered layouts, purple gradients, excessive rounding, and any visible private-booking details.
  */
 
@@ -51,38 +51,48 @@
 
 :root {
   --radius: 1.05rem;
-  --background: oklch(0.965 0.026 79.5);
-  --foreground: oklch(0.235 0.035 169);
-  --card: oklch(0.985 0.014 82);
-  --card-foreground: oklch(0.235 0.035 169);
-  --popover: oklch(0.985 0.014 82);
-  --popover-foreground: oklch(0.235 0.035 169);
-  --primary: oklch(0.31 0.075 174);
-  --primary-foreground: oklch(0.985 0.014 82);
-  --secondary: oklch(0.9 0.035 80);
-  --secondary-foreground: oklch(0.29 0.05 173);
-  --muted: oklch(0.91 0.022 82);
-  --muted-foreground: oklch(0.47 0.028 165);
-  --accent: oklch(0.66 0.12 34);
-  --accent-foreground: oklch(0.985 0.014 82);
+  --redsea-sand: #fff3d8;
+  --redsea-sand-deep: #efd49f;
+  --redsea-coral: #e7533f;
+  --redsea-coral-deep: #b62f2a;
+  --redsea-turquoise: #19a9b8;
+  --redsea-turquoise-soft: #79d7db;
+  --redsea-deep: #073b4c;
+  --redsea-blue: #0b6f8f;
+  --redsea-amber: #f3a53f;
+  --redsea-mangrove: #226d5d;
+  --background: oklch(0.972 0.032 82);
+  --foreground: oklch(0.25 0.06 220);
+  --card: oklch(0.99 0.021 83);
+  --card-foreground: oklch(0.25 0.06 220);
+  --popover: oklch(0.99 0.021 83);
+  --popover-foreground: oklch(0.25 0.06 220);
+  --primary: oklch(0.62 0.12 204);
+  --primary-foreground: oklch(0.99 0.021 83);
+  --secondary: oklch(0.9 0.055 190);
+  --secondary-foreground: oklch(0.27 0.075 220);
+  --muted: oklch(0.925 0.035 82);
+  --muted-foreground: oklch(0.46 0.035 214);
+  --accent: oklch(0.64 0.19 32);
+  --accent-foreground: oklch(0.99 0.021 83);
   --destructive: oklch(0.56 0.19 27);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.79 0.035 81);
-  --input: oklch(0.79 0.035 81);
-  --ring: oklch(0.42 0.075 174);
-  --chart-1: oklch(0.31 0.075 174);
-  --chart-2: oklch(0.66 0.12 34);
-  --chart-3: oklch(0.72 0.08 194);
-  --chart-4: oklch(0.78 0.06 83);
-  --chart-5: oklch(0.45 0.06 140);
-  --sidebar: oklch(0.955 0.022 79.5);
-  --sidebar-foreground: oklch(0.235 0.035 169);
-  --sidebar-primary: oklch(0.31 0.075 174);
-  --sidebar-primary-foreground: oklch(0.985 0.014 82);
-  --sidebar-accent: oklch(0.9 0.035 80);
-  --sidebar-accent-foreground: oklch(0.29 0.05 173);
-  --sidebar-border: oklch(0.79 0.035 81);
-  --sidebar-ring: oklch(0.42 0.075 174);
+  --border: oklch(0.82 0.045 190);
+  --input: oklch(0.82 0.045 190);
+  --ring: oklch(0.62 0.12 204);
+  --chart-1: oklch(0.62 0.12 204);
+  --chart-2: oklch(0.64 0.19 32);
+  --chart-3: oklch(0.77 0.095 190);
+  --chart-4: oklch(0.78 0.11 72);
+  --chart-5: oklch(0.46 0.075 155);
+  --sidebar: oklch(0.965 0.03 82);
+  --sidebar-foreground: oklch(0.25 0.06 220);
+  --sidebar-primary: oklch(0.62 0.12 204);
+  --sidebar-primary-foreground: oklch(0.99 0.021 83);
+  --sidebar-accent: oklch(0.9 0.055 190);
+  --sidebar-accent-foreground: oklch(0.27 0.075 220);
+  --sidebar-border: oklch(0.82 0.045 190);
+  --sidebar-ring: oklch(0.62 0.12 204);
 }
 
 .dark {
@@ -127,9 +137,10 @@
     margin: 0;
     font-family: "Manrope", system-ui, sans-serif;
     background:
-      radial-gradient(circle at 12% 8%, rgba(238, 166, 116, 0.22), transparent 32rem),
-      radial-gradient(circle at 88% 18%, rgba(101, 175, 180, 0.18), transparent 30rem),
-      linear-gradient(135deg, #f4ead4 0%, #fbf6ea 46%, #ead6b8 100%);
+      radial-gradient(circle at 14% 8%, rgba(25, 169, 184, 0.22), transparent 33rem),
+      radial-gradient(circle at 86% 15%, rgba(231, 83, 63, 0.16), transparent 28rem),
+      radial-gradient(circle at 52% 88%, rgba(243, 165, 63, 0.18), transparent 30rem),
+      linear-gradient(135deg, #fff3d8 0%, #f7ead0 42%, #dff7f4 100%);
   }
 
   button:not(:disabled),
@@ -1319,5 +1330,218 @@
 
   .restaurant-table article {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Red Sea Coral Atlas final overrides: make the app read as Saudi Red Sea coast rather than generic luxury resort. */
+.trip-app {
+  color: var(--redsea-deep);
+}
+
+.trip-app::before {
+  opacity: 0.18;
+  background-image:
+    linear-gradient(rgba(25, 169, 184, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(231, 83, 63, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 24px 24px, rgba(11, 111, 143, 0.1) 1.5px, transparent 2px);
+  background-size: 58px 58px, 58px 58px, 58px 58px;
+}
+
+.hero-shell {
+  border-bottom: 12px solid rgba(25, 169, 184, 0.52);
+}
+
+.hero-overlay,
+.real-photo-hero .hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(7, 59, 76, 0.92) 0%, rgba(7, 59, 76, 0.68) 34%, rgba(25, 169, 184, 0.28) 66%, rgba(231, 83, 63, 0.10) 100%),
+    radial-gradient(circle at 78% 18%, rgba(121, 215, 219, 0.24), transparent 22rem),
+    linear-gradient(0deg, rgba(7, 59, 76, 0.76), transparent 48%);
+}
+
+.topbar a {
+  color: rgba(255, 243, 216, 0.92);
+  border: 1px solid rgba(121, 215, 219, 0.34);
+  background: rgba(7, 59, 76, 0.34);
+}
+
+.topbar a:hover {
+  background: rgba(25, 169, 184, 0.3);
+  border-color: rgba(255, 243, 216, 0.5);
+}
+
+.primary-link,
+.activity-form button,
+.add-checklist button {
+  background: linear-gradient(135deg, var(--redsea-coral), var(--redsea-amber));
+  color: #073b4c;
+  box-shadow: 0 18px 40px rgba(231, 83, 63, 0.24);
+}
+
+.secondary-link {
+  border-color: rgba(121, 215, 219, 0.54);
+  background: rgba(25, 169, 184, 0.14);
+}
+
+.hero-ticket {
+  background:
+    linear-gradient(135deg, rgba(255, 243, 216, 0.97), rgba(223, 247, 244, 0.92));
+  color: var(--redsea-deep);
+  border: 1px solid rgba(121, 215, 219, 0.52);
+}
+
+.hero-ticket::before,
+.hero-ticket::after {
+  background: var(--redsea-deep);
+}
+
+.stamp,
+.flight-card__line,
+.day-card__button svg,
+.notes-grid svg,
+.experience-card > svg,
+.restaurant-board__intro svg {
+  color: var(--redsea-coral);
+}
+
+.overview-strip article,
+.flight-card,
+.hotel-card,
+.day-card,
+.notes-grid article,
+.recommendation-card,
+.experience-card {
+  background:
+    linear-gradient(145deg, rgba(255, 243, 216, 0.92), rgba(223, 247, 244, 0.48));
+  border: 1px solid rgba(25, 169, 184, 0.22);
+  box-shadow: 0 22px 55px rgba(7, 59, 76, 0.12);
+}
+
+.overview-strip svg,
+.hotel-details svg,
+.ticket-grid svg {
+  color: var(--redsea-turquoise);
+}
+
+.route-visual,
+.hotel-card__image-stack {
+  background:
+    linear-gradient(135deg, rgba(7, 59, 76, 0.98), rgba(11, 111, 143, 0.92)),
+    radial-gradient(circle at top right, rgba(231, 83, 63, 0.35), transparent 18rem);
+  border-color: rgba(121, 215, 219, 0.32);
+}
+
+.source-note {
+  background: rgba(25, 169, 184, 0.12);
+  border-left-color: var(--redsea-coral);
+  color: rgba(7, 59, 76, 0.78);
+}
+
+.schedule-shell {
+  background:
+    radial-gradient(circle at 8% 12%, rgba(121, 215, 219, 0.22), transparent 22rem),
+    radial-gradient(circle at 93% 18%, rgba(231, 83, 63, 0.14), transparent 20rem),
+    linear-gradient(135deg, rgba(255, 243, 216, 0.94), rgba(223, 247, 244, 0.84));
+  border: 1px solid rgba(25, 169, 184, 0.28);
+  box-shadow: 0 30px 84px rgba(7, 59, 76, 0.14);
+}
+
+.schedule-controls button {
+  background: rgba(25, 169, 184, 0.12);
+  color: var(--redsea-deep);
+  border: 1px solid rgba(25, 169, 184, 0.28);
+}
+
+.schedule-controls button.active,
+.schedule-controls button:hover,
+.activity-form button:hover,
+.add-checklist button:hover {
+  background: linear-gradient(135deg, var(--redsea-coral), var(--redsea-amber));
+  color: #073b4c;
+  box-shadow: 0 16px 34px rgba(231, 83, 63, 0.18);
+}
+
+.activity-form input,
+.activity-form select,
+.add-checklist input,
+.add-checklist select,
+.schedule-lane,
+.schedule-block,
+.restaurant-table,
+.restaurant-table article {
+  background: rgba(255, 243, 216, 0.8);
+  color: var(--redsea-deep);
+  border-color: rgba(25, 169, 184, 0.24);
+}
+
+.activity-form input:focus,
+.activity-form select:focus,
+.add-checklist input:focus,
+.add-checklist select:focus {
+  box-shadow: 0 0 0 3px rgba(25, 169, 184, 0.22);
+  border-color: rgba(231, 83, 63, 0.5);
+}
+
+.schedule-block {
+  border-left-color: var(--redsea-turquoise);
+}
+
+.schedule-block button,
+.remove-check {
+  background: rgba(25, 169, 184, 0.13);
+  color: var(--redsea-deep);
+}
+
+.schedule-block span,
+.experience-card strong {
+  color: var(--redsea-coral-deep);
+}
+
+.lane-kids { border-left-color: var(--redsea-turquoise); }
+.lane-parents { border-left-color: var(--redsea-coral); }
+.lane-dining { border-left-color: var(--redsea-amber); }
+.lane-reset { border-left-color: var(--redsea-mangrove); }
+
+.packing-panel,
+.restaurant-board__intro,
+.trip-footer {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(25, 169, 184, 0.24), transparent 18rem),
+    linear-gradient(135deg, var(--redsea-deep), #0b5a68 72%, #0b6f8f);
+  color: var(--redsea-sand);
+}
+
+.packing-panel .section-heading h2,
+.packing-panel .section-heading p {
+  color: var(--redsea-sand);
+}
+
+.packing-panel .section-heading span {
+  color: var(--redsea-turquoise-soft);
+}
+
+.progress-shell__bar {
+  background: linear-gradient(90deg, var(--redsea-turquoise), var(--redsea-coral), var(--redsea-amber));
+}
+
+.check-row--done .check-row__box {
+  background: var(--redsea-coral);
+  border-color: var(--redsea-coral);
+}
+
+.recommendation-card,
+.restaurant-table article {
+  border-left-color: var(--redsea-coral);
+}
+
+.remove-check:hover {
+  background: rgba(231, 83, 63, 0.18);
+}
+
+@media (max-width: 640px) {
+  .hero-overlay,
+  .real-photo-hero .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(7, 59, 76, 0.88) 0%, rgba(11, 111, 143, 0.68) 46%, rgba(7, 59, 76, 0.94) 100%);
   }
 }

@@ -20,9 +20,9 @@ import {
 } from "lucide-react";
 
 /**
- * Design philosophy: Red Sea Expedition Modernism.
- * This page must feel like a private premium travel folio: asymmetric cards, boarding-pass details,
- * reef-green/sand/coral palette, clear family logistics, tactile paper texture, and private reservation details omitted.
+ * Design philosophy: Red Sea Coral Atlas.
+ * This page must feel unmistakably Red Sea: reef turquoise, coral red, warm sand, deep sea blue,
+ * sunset amber, clear family logistics, tactile coastal texture, and private reservation details omitted.
  * Every choice should reinforce a calm, practical family command center rather than a generic travel page.
  */
 

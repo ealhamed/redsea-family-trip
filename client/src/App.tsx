@@ -7,9 +7,9 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 
 /**
- * Design philosophy: Red Sea Expedition Modernism.
- * App-level structure should keep the experience focused, private, and travel-folio-like:
- * a single clear family command center, warm light theme, and no financial information.
+ * Design philosophy: Red Sea Coral Atlas.
+ * App-level structure should keep the experience focused, private, coastal, and family-ready:
+ * a single clear command center, warm sand base, reef turquoise/coral accents, and no financial information.
  */
 
 function Router() {
