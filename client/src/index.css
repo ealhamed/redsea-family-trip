@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/**
+ * Design philosophy: Red Sea Expedition Modernism.
+ * Global styling must preserve a private premium travel-folio feeling: reef green, warm sand,
+ * coral clay accents, tactile paper texture, elegant asymmetry, and high-contrast mobile readability.
+ * Avoid generic centered layouts, purple gradients, excessive rounding, and any visible private-booking details.
+ */
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -43,83 +50,88 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
+  --radius: 1.05rem;
+  --background: oklch(0.965 0.026 79.5);
+  --foreground: oklch(0.235 0.035 169);
+  --card: oklch(0.985 0.014 82);
+  --card-foreground: oklch(0.235 0.035 169);
+  --popover: oklch(0.985 0.014 82);
+  --popover-foreground: oklch(0.235 0.035 169);
+  --primary: oklch(0.31 0.075 174);
+  --primary-foreground: oklch(0.985 0.014 82);
+  --secondary: oklch(0.9 0.035 80);
+  --secondary-foreground: oklch(0.29 0.05 173);
+  --muted: oklch(0.91 0.022 82);
+  --muted-foreground: oklch(0.47 0.028 165);
+  --accent: oklch(0.66 0.12 34);
+  --accent-foreground: oklch(0.985 0.014 82);
+  --destructive: oklch(0.56 0.19 27);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  --border: oklch(0.79 0.035 81);
+  --input: oklch(0.79 0.035 81);
+  --ring: oklch(0.42 0.075 174);
+  --chart-1: oklch(0.31 0.075 174);
+  --chart-2: oklch(0.66 0.12 34);
+  --chart-3: oklch(0.72 0.08 194);
+  --chart-4: oklch(0.78 0.06 83);
+  --chart-5: oklch(0.45 0.06 140);
+  --sidebar: oklch(0.955 0.022 79.5);
+  --sidebar-foreground: oklch(0.235 0.035 169);
+  --sidebar-primary: oklch(0.31 0.075 174);
+  --sidebar-primary-foreground: oklch(0.985 0.014 82);
+  --sidebar-accent: oklch(0.9 0.035 80);
+  --sidebar-accent-foreground: oklch(0.29 0.05 173);
+  --sidebar-border: oklch(0.79 0.035 81);
+  --sidebar-ring: oklch(0.42 0.075 174);
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
+  --background: oklch(0.18 0.035 174);
+  --foreground: oklch(0.94 0.025 82);
+  --card: oklch(0.23 0.036 174);
+  --card-foreground: oklch(0.94 0.025 82);
+  --popover: oklch(0.23 0.036 174);
+  --popover-foreground: oklch(0.94 0.025 82);
+  --primary: oklch(0.72 0.075 194);
+  --primary-foreground: oklch(0.18 0.035 174);
+  --secondary: oklch(0.28 0.036 174);
+  --secondary-foreground: oklch(0.9 0.025 82);
+  --muted: oklch(0.28 0.036 174);
+  --muted-foreground: oklch(0.72 0.028 82);
+  --accent: oklch(0.66 0.12 34);
+  --accent-foreground: oklch(0.985 0.014 82);
+  --destructive: oklch(0.68 0.17 27);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --border: oklch(1 0 0 / 14%);
+  --input: oklch(1 0 0 / 18%);
+  --ring: oklch(0.72 0.075 194);
+  --sidebar: oklch(0.2 0.035 174);
+  --sidebar-foreground: oklch(0.94 0.025 82);
+  --sidebar-accent: oklch(0.28 0.036 174);
+  --sidebar-accent-foreground: oklch(0.9 0.025 82);
+  --sidebar-border: oklch(1 0 0 / 14%);
+  --sidebar-ring: oklch(0.72 0.075 194);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    margin: 0;
+    font-family: "Manrope", system-ui, sans-serif;
+    background:
+      radial-gradient(circle at 12% 8%, rgba(238, 166, 116, 0.22), transparent 32rem),
+      radial-gradient(circle at 88% 18%, rgba(101, 175, 180, 0.18), transparent 30rem),
+      linear-gradient(135deg, #f4ead4 0%, #fbf6ea 46%, #ead6b8 100%);
   }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -134,24 +146,11 @@
 }
 
 @layer components {
-  /**
-   * Custom container utility that centers content and adds responsive padding.
-   *
-   * This overrides Tailwind's default container behavior to:
-   * - Auto-center content (mx-auto)
-   * - Add responsive horizontal padding
-   * - Set max-width for large screens
-   *
-   * Usage: <div className="container">...</div>
-   *
-   * For custom widths, use max-w-* utilities directly:
-   * <div className="max-w-6xl mx-auto px-4">...</div>
-   */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem; /* 16px - mobile padding */
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
@@ -162,16 +161,795 @@
 
   @media (min-width: 640px) {
     .container {
-      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
 
   @media (min-width: 1024px) {
     .container {
-      padding-left: 2rem; /* 32px - desktop padding */
+      padding-left: 2rem;
       padding-right: 2rem;
-      max-width: 1280px; /* Standard content width */
+      max-width: 1220px;
     }
+  }
+}
+
+.trip-app {
+  min-height: 100vh;
+  color: #173d36;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.trip-app::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(20, 61, 54, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 61, 54, 0.12) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, black, transparent 80%);
+}
+
+.trip-app > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-shell {
+  min-height: 92vh;
+  position: relative;
+  isolation: isolate;
+  color: #fff9e9;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 10px solid rgba(238, 166, 116, 0.35);
+}
+
+.hero-shell > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(12, 47, 42, 0.94) 0%, rgba(12, 47, 42, 0.72) 42%, rgba(12, 47, 42, 0.08) 100%),
+    linear-gradient(0deg, rgba(12, 47, 42, 0.72), transparent 40%);
+  z-index: -2;
+}
+
+.topbar {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 1.25rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.topbar a {
+  color: rgba(255, 249, 233, 0.86);
+  text-decoration: none;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid rgba(255, 249, 233, 0.2);
+  background: rgba(12, 47, 42, 0.22);
+  backdrop-filter: blur(16px);
+  transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+}
+
+.topbar a:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 249, 233, 0.13);
+  color: #fff9e9;
+}
+
+.hero-content {
+  width: min(1120px, calc(100% - 2rem));
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(310px, 0.72fr);
+  gap: clamp(1.4rem, 4vw, 4rem);
+  align-items: end;
+  padding: 5rem 0 6rem;
+}
+
+.hero-copy {
+  max-width: 690px;
+}
+
+.hero-copy h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(3.4rem, 9vw, 7.6rem);
+  line-height: 0.86;
+  letter-spacing: -0.065em;
+  margin: 1.1rem 0 1.4rem;
+  text-wrap: balance;
+}
+
+.hero-copy p {
+  font-size: clamp(1rem, 1.7vw, 1.25rem);
+  line-height: 1.8;
+  color: rgba(255, 249, 233, 0.84);
+  max-width: 650px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.primary-link,
+.secondary-link {
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.primary-link {
+  background: #ee9a6a;
+  color: #173d36;
+  padding: 0.95rem 1.2rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.secondary-link {
+  border: 1px solid rgba(255, 249, 233, 0.34);
+  color: #fff9e9;
+  padding: 0.95rem 1.2rem;
+  background: rgba(255, 249, 233, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.primary-link:hover,
+.secondary-link:hover {
+  transform: translateY(-2px);
+}
+
+.hero-ticket {
+  background: rgba(255, 249, 233, 0.94);
+  color: #173d36;
+  padding: 1.4rem;
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.24);
+  border: 1px solid rgba(255, 249, 233, 0.42);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ticket::before,
+.hero-ticket::after {
+  content: "";
+  position: absolute;
+  top: 48%;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: #173d36;
+}
+
+.hero-ticket::before { left: -13px; }
+.hero-ticket::after { right: -13px; }
+
+.stamp {
+  display: inline-flex;
+  border: 1px dashed rgba(23, 61, 54, 0.42);
+  padding: 0.45rem 0.7rem;
+  color: #a14f38;
+  font-weight: 900;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-1.8deg);
+}
+
+.hero-ticket h2 {
+  margin: 1.3rem 0 0.4rem;
+  font-size: clamp(2.1rem, 5vw, 4rem);
+  font-family: "Fraunces", Georgia, serif;
+  letter-spacing: -0.06em;
+}
+
+.hero-ticket p {
+  color: rgba(23, 61, 54, 0.72);
+  line-height: 1.65;
+  margin-bottom: 1.4rem;
+}
+
+.ticket-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.ticket-grid span,
+.hotel-details span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #173d36;
+  font-weight: 800;
+  font-size: 0.86rem;
+  background: rgba(226, 205, 164, 0.5);
+  padding: 0.72rem;
+}
+
+.folio-pill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 0.43rem 0.68rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 900;
+  border: 1px solid currentColor;
+}
+
+.folio-pill-sand { color: #d8bd80; }
+.folio-pill-green { color: #1f6659; background: rgba(31, 102, 89, 0.08); }
+.folio-pill-coral { color: #ffb28b; background: rgba(238, 154, 106, 0.12); }
+
+.overview-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: -3.5rem;
+  margin-bottom: 5rem;
+}
+
+.overview-strip article {
+  background: rgba(255, 249, 233, 0.9);
+  box-shadow: 0 20px 45px rgba(41, 71, 61, 0.13);
+  border: 1px solid rgba(115, 95, 59, 0.14);
+  padding: 1.2rem;
+  backdrop-filter: blur(14px);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.overview-strip article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 56px rgba(41, 71, 61, 0.18);
+}
+
+.overview-strip svg {
+  color: #a14f38;
+  margin-bottom: 1rem;
+}
+
+.overview-strip span,
+.section-heading span {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #a14f38;
+  font-weight: 900;
+}
+
+.overview-strip strong {
+  display: block;
+  font-size: 1.15rem;
+  margin: 0.3rem 0;
+}
+
+.overview-strip p,
+.section-heading p,
+.hotel-card__content p,
+.recommendation-card p {
+  color: rgba(23, 61, 54, 0.72);
+  line-height: 1.75;
+}
+
+.route-section,
+.packing-section {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  margin-bottom: 6rem;
+}
+
+.route-visual,
+.packing-image {
+  min-height: 420px;
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(23, 61, 54, 0.16);
+  transform: rotate(-1deg);
+  border: 10px solid rgba(255, 249, 233, 0.9);
+  background: #fff9e9;
+}
+
+.route-visual img,
+.packing-image img,
+.hotel-card__image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.section-heading {
+  margin-bottom: 1.4rem;
+  max-width: 680px;
+}
+
+.section-heading h2,
+.hotel-card__content h2,
+.recommendation-card h3 {
+  font-family: "Fraunces", Georgia, serif;
+  color: #173d36;
+  letter-spacing: -0.055em;
+}
+
+.section-heading h2 {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  line-height: 0.95;
+  margin: 0.55rem 0 0.8rem;
+}
+
+.flight-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.flight-card {
+  background: rgba(255, 249, 233, 0.92);
+  border: 1px solid rgba(23, 61, 54, 0.12);
+  box-shadow: 0 20px 45px rgba(41, 71, 61, 0.12);
+  padding: 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.flight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1.05rem;
+  border-left: 1px dashed rgba(23, 61, 54, 0.16);
+}
+
+.flight-card__top,
+.flight-card__route,
+.flight-card__meta {
+  position: relative;
+  z-index: 1;
+}
+
+.flight-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.flight-card__top p,
+.flight-card__meta,
+.day-card__button span {
+  color: rgba(23, 61, 54, 0.56);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.flight-card__top h3,
+.day-card h3 {
+  margin: 0.15rem 0 0;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.flight-card__route {
+  display: grid;
+  grid-template-columns: 82px 1fr 82px;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.45rem 0;
+}
+
+.flight-card__route div:first-child,
+.flight-card__route div:last-child {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.flight-card__route div:last-child { text-align: right; }
+
+.flight-card__route strong {
+  font-size: 0.88rem;
+  color: rgba(23, 61, 54, 0.62);
+}
+
+.flight-card__route span {
+  font-size: 1.9rem;
+  font-weight: 900;
+  font-variant-numeric: tabular-nums;
+}
+
+.flight-card__line {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  color: #a14f38;
+}
+
+.flight-card__line span {
+  height: 1px;
+  background: rgba(23, 61, 54, 0.25);
+}
+
+.flight-card__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(23, 61, 54, 0.1);
+  padding-top: 0.9rem;
+}
+
+.hotel-section,
+.plan-section,
+.notes-section {
+  margin-bottom: 6rem;
+}
+
+.hotel-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  background: rgba(255, 249, 233, 0.76);
+  border: 1px solid rgba(23, 61, 54, 0.12);
+  box-shadow: 0 28px 70px rgba(23, 61, 54, 0.13);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.hotel-card__image {
+  min-height: 390px;
+  overflow: hidden;
+}
+
+.hotel-card__content {
+  align-self: center;
+  padding: clamp(0.8rem, 3vw, 2.2rem);
+}
+
+.hotel-card__content h2 {
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  margin: 1rem 0;
+  line-height: 0.92;
+}
+
+.hotel-details {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1fr 0.9fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.day-card {
+  background: rgba(255, 249, 233, 0.88);
+  border: 1px solid rgba(23, 61, 54, 0.12);
+  box-shadow: 0 20px 48px rgba(41, 71, 61, 0.12);
+  overflow: hidden;
+}
+
+.day-card-2 { margin-top: 3rem; }
+.day-card-3 { margin-top: 1.2rem; }
+.day-card-4 { grid-column: 2 / span 2; }
+
+.day-card__button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  text-align: left;
+  padding: 1.2rem;
+  color: #173d36;
+}
+
+.day-card__button svg {
+  color: #a14f38;
+  transition: transform 180ms ease;
+}
+
+.day-card__button svg.rotate {
+  transform: rotate(180deg);
+}
+
+.day-card__button p {
+  margin: 0.35rem 0 0;
+  color: rgba(23, 61, 54, 0.64);
+}
+
+.day-card__list {
+  margin: 0;
+  padding: 0 1.2rem 1.3rem 2.25rem;
+  color: rgba(23, 61, 54, 0.74);
+  line-height: 1.72;
+}
+
+.day-card__list li + li {
+  margin-top: 0.5rem;
+}
+
+.packing-section {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 1.08fr);
+}
+
+.packing-image {
+  transform: rotate(1deg);
+}
+
+.packing-panel {
+  background: rgba(23, 61, 54, 0.94);
+  color: #fff9e9;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  box-shadow: 0 30px 74px rgba(23, 61, 54, 0.2);
+}
+
+.packing-panel .section-heading h2,
+.packing-panel .section-heading p {
+  color: #fff9e9;
+}
+
+.packing-panel .section-heading span {
+  color: #ffb28b;
+}
+
+.progress-shell {
+  height: 12px;
+  background: rgba(255, 249, 233, 0.14);
+  margin: 1.3rem 0;
+  overflow: hidden;
+}
+
+.progress-shell__bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ee9a6a, #e6c67e);
+  transition: width 260ms ease;
+}
+
+.checklist-grid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.check-row {
+  appearance: none;
+  border: 1px solid rgba(255, 249, 233, 0.16);
+  background: rgba(255, 249, 233, 0.08);
+  color: #fff9e9;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.7rem;
+  align-items: center;
+  text-align: left;
+  padding: 0.85rem;
+  transition: background 180ms ease, transform 180ms ease, border-color 180ms ease;
+}
+
+.check-row:hover {
+  transform: translateX(3px);
+  background: rgba(255, 249, 233, 0.13);
+}
+
+.check-row--done {
+  background: rgba(238, 154, 106, 0.2);
+  border-color: rgba(238, 154, 106, 0.42);
+}
+
+.check-row__box {
+  width: 22px;
+  height: 22px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(255, 249, 233, 0.5);
+  color: #173d36;
+  background: rgba(255, 249, 233, 0.15);
+}
+
+.check-row--done .check-row__box {
+  background: #ee9a6a;
+  border-color: #ee9a6a;
+}
+
+.check-row em {
+  font-size: 0.72rem;
+  color: rgba(255, 249, 233, 0.68);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.notes-grid article,
+.recommendation-card {
+  background: rgba(255, 249, 233, 0.86);
+  border: 1px solid rgba(23, 61, 54, 0.12);
+  box-shadow: 0 20px 48px rgba(41, 71, 61, 0.1);
+  padding: 1.2rem;
+}
+
+.notes-grid svg {
+  color: #a14f38;
+  margin-bottom: 0.8rem;
+}
+
+.notes-grid p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(23, 61, 54, 0.74);
+}
+
+.recommendation-card {
+  margin-top: 1rem;
+  border-left: 8px solid #ee9a6a;
+}
+
+.recommendation-card h3 {
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.trip-footer {
+  background: #173d36;
+  color: #fff9e9;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.2rem;
+}
+
+.trip-footer p {
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .hero-content,
+  .route-section,
+  .hotel-card,
+  .packing-section {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    align-items: start;
+    padding-top: 4rem;
+  }
+
+  .overview-strip,
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-strip {
+    margin-top: 1rem;
+  }
+
+  .route-visual,
+  .packing-image,
+  .hotel-card__image {
+    min-height: 300px;
+  }
+
+  .day-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .day-card-2,
+  .day-card-3 {
+    margin-top: 0;
+  }
+
+  .day-card-4 {
+    grid-column: 1 / span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-shell {
+    min-height: auto;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(12, 47, 42, 0.9) 0%, rgba(12, 47, 42, 0.72) 48%, rgba(12, 47, 42, 0.92) 100%);
+  }
+
+  .topbar {
+    justify-content: flex-start;
+  }
+
+  .topbar a {
+    font-size: 0.68rem;
+    padding: 0.55rem 0.66rem;
+  }
+
+  .hero-content {
+    width: min(100% - 1.25rem, 1120px);
+    padding: 3rem 0 2rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(3rem, 16vw, 4.6rem);
+  }
+
+  .ticket-grid,
+  .flight-card__route,
+  .day-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .flight-card__route {
+    gap: 0.65rem;
+  }
+
+  .flight-card__line {
+    transform: rotate(90deg);
+    max-width: 140px;
+    margin: 0.4rem auto;
+  }
+
+  .flight-card__route div:last-child {
+    text-align: left;
+  }
+
+  .day-card-4 {
+    grid-column: auto;
+  }
+
+  .route-visual,
+  .packing-image {
+    min-height: 245px;
+    border-width: 6px;
+  }
+
+  .hotel-card,
+  .packing-panel,
+  .notes-grid article,
+  .recommendation-card {
+    padding: 1rem;
+  }
+
+  .check-row {
+    grid-template-columns: auto 1fr;
+  }
+
+  .check-row em {
+    grid-column: 2;
   }
 }
