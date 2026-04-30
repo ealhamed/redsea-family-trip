@@ -3,12 +3,10 @@ import {
   Baby,
   CalendarDays,
   Check,
-  ChevronDown,
   Clock3,
   Film,
   Hotel,
   Luggage,
-  MapPin,
   Plane,
   Plus,
   Sailboat,
@@ -21,9 +19,9 @@ import {
 
 /**
  * Design philosophy: Red Sea Coral Atlas.
- * This page must feel unmistakably Red Sea: reef turquoise, coral red, warm sand, deep sea blue,
- * sunset amber, clear family logistics, tactile coastal texture, and private reservation details omitted.
- * Every choice should reinforce a calm, practical family command center rather than a generic travel page.
+ * The page follows one chronological family-trip sequence: Flight, Hotel, Hotel Facilities,
+ * Hotel Activities and Schedule, then Checklist. Redundancy is intentionally removed so the app
+ * feels like a practical Red Sea command center rather than a long promotional page.
  */
 
 const heroImage = "/manus-storage/shura-island-aerial_a7dc46b4.jpg";
@@ -76,46 +74,26 @@ const flights = [
   },
 ];
 
-const days = [
+const hotelFacilities = [
   {
-    date: "Wed 13 May",
-    title: "Arrival + settle in",
-    tone: "Travel day",
-    items: [
-      "Land at RSI around 12:30, then take the causeway transfer toward Shura Island.",
-      "Keep the afternoon light: check-in, unpack, pool glance, early dinner, kids wind-down.",
-      "Confirm Kids’ Club / Teens’ Club timing with the concierge for Thursday and Friday.",
-    ],
+    title: "Indulge 2-Bedroom Suite",
+    detail: "Use the suite as the family basecamp: sleeping zones, luggage zone, sun kit near the door, and a calm reset space between activities.",
+    icon: Hotel,
   },
   {
-    date: "Thu 14 May",
-    title: "Water + kids club day",
-    tone: "Stacked family rhythm",
-    items: [
-      "Morning family pool or beach block before peak heat.",
-      "Stack kids club or Teens’ Club while parents book Ciel Spa, padel, or quiet lunch.",
-      "Pick one destination dinner; do not overfill the day.",
-    ],
+    title: "Kids’ Club + Teens’ Club",
+    detail: "Confirm the daily programme on arrival, then use supervised blocks to stack kids’ activities with parents’ plans.",
+    icon: Baby,
   },
   {
-    date: "Fri 15 May",
-    title: "Best experience day",
-    tone: "Book ahead",
-    items: [
-      "Choose one signature activity: seaplane, snorkelling, kayaking, paddleboarding, or Shura Links.",
-      "Hold late afternoon for open-air cinema or golden-hour Seabird / The Perch.",
-      "Pack part of the luggage at night so Saturday is calm.",
-    ],
+    title: "Ciel Spa + wellness",
+    detail: "Good candidate for a parents-only block while the kids are in club activities or resting after lunch.",
+    icon: ShieldCheck,
   },
   {
-    date: "Sat 16 May",
-    title: "Checkout + return",
-    tone: "Smooth exit",
-    items: [
-      "Final room sweep: chargers, IDs, swimwear, medicine kit, comfort toys.",
-      "Checkout target is noon; head to RSI with time for kids and airport movement.",
-      "Return flight departs 13:15 and lands in Riyadh around 15:10.",
-    ],
+    title: "Beach, pool + water gear",
+    detail: "Keep morning water time light and weather-aware. Pack sunscreen, goggles, sandals and wet bags before leaving the suite.",
+    icon: Waves,
   },
 ];
 
@@ -153,54 +131,54 @@ const experiences = [
     title: "Kids’ Club",
     tag: "Kids 5–11",
     priority: "Book daily slots early",
-    detail: "Daily programme can include workshops, arts and crafts, origami, slime-making, science experiments, sandcastle building, beach volleyball, table tennis, pool games, team challenges, mini discos and kids’ rave parties.",
+    detail: "Use this as the anchor for parents-only windows, especially late morning or late afternoon.",
     icon: Baby,
   },
   {
     title: "Teens’ Club",
     tag: "Ages 12–15",
     priority: "Useful for parallel plans",
-    detail: "Indoor gaming lounge, basketball, table tennis, padel and tailored workouts at the multipurpose sports station.",
+    detail: "Gaming, sports and tailored activity blocks can run beside adults’ spa, padel or dining plans.",
     icon: Sparkles,
   },
   {
     title: "Ciel Spa",
     tag: "Parents",
     priority: "Reserve ahead",
-    detail: "Couples’ suites, hydrotherapy, hammam, steam, sauna, beauty stations, grooming lounge, LED therapy, HydraFacial and Biologique Recherche protocols.",
+    detail: "Best used while kids are supervised or after a low-energy family lunch.",
     icon: ShieldCheck,
   },
   {
-    title: "Water block",
+    title: "Water sports",
     tag: "Family",
     priority: "Weather-dependent",
-    detail: "Complimentary kayaks, snorkelling equipment and paddleboards; premium options include Seabob, e-foil and e-surf.",
+    detail: "Kayak, snorkel or paddleboard as one focused family block rather than several fragmented activities.",
     icon: Waves,
   },
   {
     title: "Shura Links",
     tag: "Golf",
-    priority: "Book if you want a grown-up window",
-    detail: "Saudi Arabia’s first 18-hole championship golf course is part of Shura Island’s broader destination experience.",
+    priority: "Book if desired",
+    detail: "A grown-up window if you want one major non-beach activity during the stay.",
     icon: Sailboat,
   },
   {
     title: "Open-air cinema",
     tag: "Evening",
-    priority: "Good low-energy option",
-    detail: "Shura Island’s open-air cinema is a strong evening candidate after an active day.",
+    priority: "Low-energy option",
+    detail: "Good after an active day when the family needs an easy evening plan.",
     icon: Film,
   },
 ];
 
 const restaurants = [
-  { name: "Fi’lia", cuisine: "Italian", bestFor: "First night / family table", book: "High", note: "Handmade pasta, wood-fired pizza, warm family-style hospitality." },
-  { name: "Seabird", cuisine: "Seafood, Spanish-Portuguese", bestFor: "Golden-hour date or family seafood", book: "Very high", note: "Seafood towers, oysters, lobster rice, octopus roll and coastal energy." },
-  { name: "Floating World", cuisine: "Japanese-influenced", bestFor: "Parents’ dinner", book: "High", note: "Easy-to-share dishes, sushi, tempura, robata and dramatic design." },
-  { name: "The Perch", cuisine: "Poolside refreshments", bestFor: "Afternoon / pre-dinner", book: "Medium", note: "Cabanas, fresh juices, slushies, mocktails and golden-hour energy." },
-  { name: "Deluxe", cuisine: "Café, pastries, light bites", bestFor: "Coffee / casual reset", book: "Low", note: "All-day café-lounge for practical family gaps." },
-  { name: "Four Seasons Al Forn", cuisine: "Levantine", bestFor: "Alternative Shura dinner", book: "Check access", note: "Arabic dishes from Lebanon and Syria; confirm cross-resort dining access." },
-  { name: "Four Seasons Spiaggia", cuisine: "Italian beachside", bestFor: "Beach lunch", book: "Check access", note: "Al fresco Italian near beach and pool; confirm availability for non-guests." },
+  { name: "Fi’lia", cuisine: "Italian", bestFor: "First night / family table", book: "High", note: "Comfortable family option: handmade pasta, wood-fired pizza and easy sharing." },
+  { name: "Seabird", cuisine: "Seafood, Spanish-Portuguese", bestFor: "Golden-hour dinner", book: "Very high", note: "Strong choice for a special seafood-led evening." },
+  { name: "Floating World", cuisine: "Japanese-influenced", bestFor: "Parents’ dinner", book: "High", note: "Best kept for a quieter adults’ slot if kids are covered." },
+  { name: "The Perch", cuisine: "Poolside refreshments", bestFor: "Afternoon reset", book: "Medium", note: "Useful between pool, beach and kids club transitions." },
+  { name: "Deluxe", cuisine: "Café, pastries, light bites", bestFor: "Casual gaps", book: "Low", note: "Good for coffee, snacks and practical family downtime." },
+  { name: "Four Seasons Al Forn", cuisine: "Levantine", bestFor: "Alternative Shura dinner", book: "Check access", note: "Confirm cross-resort dining access before relying on it." },
+  { name: "Four Seasons Spiaggia", cuisine: "Italian beachside", bestFor: "Beach lunch", book: "Check access", note: "Confirm availability for non-guests before planning around it." },
 ];
 
 function Pill({ children, tone = "sand" }: { children: React.ReactNode; tone?: "sand" | "green" | "coral" }) {
@@ -246,30 +224,6 @@ function FlightCard({ flight }: { flight: (typeof flights)[number] }) {
         <span>{flight.duration}</span>
         <span>{flight.note}</span>
       </div>
-    </article>
-  );
-}
-
-function DayCard({ day, index }: { day: (typeof days)[number]; index: number }) {
-  const [open, setOpen] = useState(index < 2);
-
-  return (
-    <article className={`day-card day-card-${index + 1}`}>
-      <button className="day-card__button" onClick={() => setOpen((value) => !value)} aria-expanded={open}>
-        <div>
-          <span>{day.date}</span>
-          <h3>{day.title}</h3>
-          <p>{day.tone}</p>
-        </div>
-        <ChevronDown className={open ? "rotate" : ""} size={22} />
-      </button>
-      {open ? (
-        <ul className="day-card__list">
-          {day.items.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      ) : null}
     </article>
   );
 }
@@ -351,11 +305,11 @@ export default function Home() {
       <section className="hero-shell real-photo-hero">
         <img src={heroImage} alt="Aerial real photograph of Shura Island and the Red Sea resort coastline" />
         <div className="hero-overlay" />
-        <nav className="topbar" aria-label="Trip overview navigation">
-          <a href="#flights">Flights</a>
-          <a href="#hotel">Suite</a>
-          <a href="#schedule">Schedule</a>
-          <a href="#experiences">Book</a>
+        <nav className="topbar" aria-label="Trip chronology navigation">
+          <a href="#flights">Flight</a>
+          <a href="#hotel">Hotel</a>
+          <a href="#facilities">Facilities</a>
+          <a href="#schedule">Activities</a>
           <a href="#packing">Checklist</a>
         </nav>
         <div className="hero-content">
@@ -363,56 +317,34 @@ export default function Home() {
             <Pill tone="coral">Private family folio</Pill>
             <h1>Red Sea family trip command center</h1>
             <p>
-              A calm, mobile-friendly place for flights, the SLS Red Sea Indulge 2-Bedroom Suite, stacked family scheduling,
-              book-now recommendations, and a checklist you can add to yourself.
+              One clean sequence for the trip: fly to RSI, settle into the SLS Red Sea Indulge 2-Bedroom Suite, use the hotel facilities well, stack activities by family lane, then finish with the checklist.
             </p>
             <div className="hero-actions">
-              <a href="#schedule" className="primary-link">Build the schedule</a>
-              <a href="#experiences" className="secondary-link">Prioritize bookings</a>
+              <a href="#flights" className="primary-link">Start with flight</a>
+              <a href="#schedule" className="secondary-link">Build schedule</a>
             </div>
           </div>
           <aside className="hero-ticket" aria-label="Trip snapshot">
             <div className="stamp">13–16 May 2026</div>
             <h2>RUH → RSI</h2>
-            <p>3-night family stay · SLS Red Sea · Indulge 2-Bedroom Suite</p>
+            <p>SLS Red Sea · Indulge 2-Bedroom Suite · Shura Island</p>
             <div className="ticket-grid">
               <span><CalendarDays size={16} /> Wed–Sat</span>
               <span><Hotel size={16} /> 2-bedroom suite</span>
-              <span><Waves size={16} /> Shura Island</span>
-              <span><ShieldCheck size={16} /> Private view</span>
+              <span><Waves size={16} /> Red Sea coast</span>
+              <span><Luggage size={16} /> {progress}% checklist</span>
             </div>
           </aside>
         </div>
       </section>
 
-      <section id="today" className="overview-strip container">
-        <article>
-          <Clock3 />
-          <span>Departure</span>
-          <strong>Wed 13 May · 10:35</strong>
-          <p>Leave Riyadh with a relaxed buffer for kids, bags, and airport movement.</p>
-        </article>
-        <article>
-          <MapPin />
-          <span>Basecamp</span>
-          <strong>SLS Red Sea</strong>
-          <p>Indulge 2-Bedroom Suite. The suite listing supports a larger family setup and a private terrace.</p>
-        </article>
-        <article>
-          <Luggage />
-          <span>Readiness</span>
-          <strong>{progress}% packed</strong>
-          <p>Add your own checklist items below; they stay in this browser session.</p>
-        </article>
-      </section>
-
-      <section id="flights" className="route-section container">
+      <section id="flights" className="route-section container chron-section">
         <div className="route-visual">
           <img src={routeImage} alt="Real SLS The Red Sea interior lounge photograph" />
         </div>
         <div className="route-content">
-          <SectionHeader eyebrow="Flights" title="Two clean hops, no extra noise">
-            Confirmed flight details are visible; private reservation details stay out of the family view.
+          <SectionHeader eyebrow="01 · Flight" title="Riyadh to Red Sea, then back home">
+            The app starts with the confirmed flight movement. Private reservation details remain outside the family view.
           </SectionHeader>
           <div className="flight-stack">
             {flights.map((flight) => (
@@ -422,7 +354,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="hotel" className="hotel-section container">
+      <section id="hotel" className="hotel-section container chron-section">
         <div className="hotel-card">
           <div className="hotel-card__image hotel-card__image-stack">
             <img src={suiteImage} alt="Real SLS The Red Sea bedroom photograph" />
@@ -430,36 +362,41 @@ export default function Home() {
             <img src={terraceImage} alt="Real SLS The Red Sea bath and terrace photograph" />
           </div>
           <div className="hotel-card__content">
-            <Pill tone="green">Family basecamp</Pill>
+            <Pill tone="green">02 · Hotel</Pill>
             <h2>SLS Red Sea · Indulge 2-Bedroom Suite</h2>
             <p>
-              Booked from <strong>Wednesday, 13 May 2026</strong> to <strong>Saturday, 16 May 2026</strong>. Accor lists the
-              Indulge 2-Bedroom Suite as a spacious two-bedroom option with a furnished terrace and room for a larger family.
+              Booked from <strong>Wednesday, 13 May 2026</strong> to <strong>Saturday, 16 May 2026</strong>. Treat the suite as the operating base: arrival reset, kids’ sleeping zones, beach kit by the door, and a calm checkout rhythm.
             </p>
             <div className="hotel-details">
-              <span><Baby size={17} /> Assign sleeping zones early</span>
-              <span><SunMediumIcon /> Prepare sun kit by the door</span>
-              <span><Sparkles size={17} /> Book kids / parents blocks in pairs</span>
+              <span><Baby size={17} /> Sleeping zones</span>
+              <span><Sparkles size={17} /> Sun kit station</span>
+              <span><ShieldCheck size={17} /> Private family view</span>
             </div>
-            <p className="source-note">Source-backed planning note: SLS and Red Sea Global list Kids’ Club, Teens’ Club, water sports, Ciel Spa, dining venues, open-air cinema and Shura Island activities. Confirm exact operating times with the concierge.</p>
           </div>
         </div>
       </section>
 
-      <section id="plan" className="plan-section container">
-        <SectionHeader eyebrow="Family rhythm" title="A practical 4-day outline">
-          This is intentionally light. The schedule builder below is where we stack kids’ activities, parents’ windows, dining and reset time.
+      <section id="facilities" className="experiences-section facilities-section container chron-section">
+        <SectionHeader eyebrow="03 · Hotel facilities" title="Use the resort like a family basecamp">
+          These are the facilities that matter most for the trip rhythm: suite reset, kids’ coverage, parents’ wellness time, and water/pool movement.
         </SectionHeader>
-        <div className="day-grid">
-          {days.map((day, index) => (
-            <DayCard key={day.date} day={day} index={index} />
-          ))}
+        <div className="experience-grid">
+          {hotelFacilities.map((facility) => {
+            const Icon = facility.icon;
+            return (
+              <article key={facility.title} className="experience-card facility-card">
+                <Icon />
+                <h3>{facility.title}</h3>
+                <p>{facility.detail}</p>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      <section id="schedule" className="schedule-section container">
-        <SectionHeader eyebrow="Stacked scheduler" title="Plan parallel tracks without losing the family rhythm">
-          Add kids club, parent time, restaurants, pool blocks and reset periods on the same day. This is designed for “kids there, parents elsewhere” planning.
+      <section id="schedule" className="schedule-section container chron-section">
+        <SectionHeader eyebrow="04 · Hotel activities + schedule" title="Stack kids, parents, family and dining blocks">
+          Add kids club, parent time, restaurants, pool blocks and reset periods on the same day. This is built for “kids there, parents elsewhere” planning.
         </SectionHeader>
         <div className="schedule-shell">
           <div className="schedule-controls">
@@ -492,31 +429,36 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
 
-      <section id="experiences" className="experiences-section container">
-        <SectionHeader eyebrow="Book-now shortlist" title="Best SLS / Shura Island moves to lock early">
-          Based on official SLS, Red Sea Global, Visit Red Sea and Four Seasons Shura Island information. Cross-resort dining access should be confirmed before booking.
-        </SectionHeader>
-        <div className="experience-grid">
-          {experiences.map((experience) => {
-            const Icon = experience.icon;
-            return (
-              <article key={experience.title} className="experience-card">
-                <Icon />
-                <Pill tone="sand">{experience.tag}</Pill>
-                <h3>{experience.title}</h3>
-                <strong>{experience.priority}</strong>
-                <p>{experience.detail}</p>
-              </article>
-            );
-          })}
+        <div className="activity-shortlist">
+          <div className="activity-shortlist__header">
+            <Clock3 />
+            <div>
+              <h3>Activity ideas to add into the schedule</h3>
+              <p>Keep the day light: one core family activity, one kids/parents stacked block, and one dining anchor.</p>
+            </div>
+          </div>
+          <div className="experience-grid compact-grid">
+            {experiences.map((experience) => {
+              const Icon = experience.icon;
+              return (
+                <article key={experience.title} className="experience-card compact-card">
+                  <Icon />
+                  <Pill tone="sand">{experience.tag}</Pill>
+                  <h3>{experience.title}</h3>
+                  <strong>{experience.priority}</strong>
+                  <p>{experience.detail}</p>
+                </article>
+              );
+            })}
+          </div>
         </div>
+
         <div className="restaurant-board">
           <div className="restaurant-board__intro">
             <Utensils />
-            <h3>Restaurant booking priority</h3>
-            <p>Book Seabird, Floating World and Fi’lia first. Keep Deluxe and The Perch as practical “gaps” between pool, beach and kids club.</p>
+            <h3>Dining anchors for the schedule</h3>
+            <p>Prioritize Seabird, Floating World and Fi’lia. Use Deluxe and The Perch as flexible gaps between pool, beach and kids club.</p>
           </div>
           <div className="restaurant-table" role="table" aria-label="Restaurant booking recommendations">
             {restaurants.map((restaurant) => (
@@ -534,13 +476,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="packing" className="packing-section container">
+      <section id="packing" className="packing-section container chron-section">
         <div className="packing-image">
           <img src={suiteDetailImage} alt="Real SLS The Red Sea suite detail photograph" />
         </div>
         <div className="packing-panel">
-          <SectionHeader eyebrow="Checklist" title="Add whatever you want">
-            Yes — you can add checklist items here. For now they persist during the browser session; if you want permanent multi-device sync later, we can upgrade the app.
+          <SectionHeader eyebrow="05 · Checklist" title="Add whatever you want, last">
+            The checklist comes after the trip plan so packing follows the actual sequence: flight, suite, facilities, and activities.
           </SectionHeader>
           <div className="progress-shell" aria-label={`Packing progress ${progress}%`}>
             <div className="progress-shell__bar" style={{ width: `${progress}%` }} />
@@ -560,24 +502,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="notes-section container">
-        <SectionHeader eyebrow="Assumptions" title="What I treated as true">
-          The Booking.com page did not render usable content in the automated browser, so the app relies on official SLS, Accor, Visit Red Sea, Red Sea Global and Four Seasons pages for live planning details.
-        </SectionHeader>
-        <div className="notes-grid">
-          <article><ShieldCheck /><p>Private reservation details remain outside the family-facing app.</p></article>
-          <article><ShieldCheck /><p>“Indulge 2-Bedroom Suite” is the user-confirmed room name; the official SLS page may label a similar category as Euphoria, while Accor lists Indulge.</p></article>
-          <article><ShieldCheck /><p>Restaurant and activity operating times should be confirmed with SLS concierge before arrival.</p></article>
-        </div>
-      </section>
-
       <footer className="trip-footer">
         <p>With warm regards from ESH</p>
       </footer>
     </main>
   );
-}
-
-function SunMediumIcon() {
-  return <Sparkles size={17} />;
 }

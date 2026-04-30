@@ -25,3 +25,12 @@
 - [ ] Update navigation, hero overlays, cards, schedule lanes, checklist elements, and booking-priority sections with the new palette.
 - [ ] Preserve all real SLS/Shura imagery and avoid showing any financial details.
 - [ ] Re-run TypeScript, production build, and privacy wording checks before delivery.
+
+## Chronological simplification request
+
+- [ ] Remove redundant repeated sections, duplicated CTAs, and repeated explanatory copy.
+- [ ] Reorganize the page flow into: Flight, Hotel, Hotel Facilities, Hotel Activities and Schedule, then Checklist.
+- [ ] Update top navigation labels and anchor order to match the chronological sequence.
+- [ ] Keep financial and payment information hidden throughout the revised structure.
+- [ ] Preserve useful functions: editable checklist, stacked schedule planning, booking-priority notes, and real SLS/Shura imagery.
+- [ ] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.

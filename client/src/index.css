@@ -1545,3 +1545,82 @@
       linear-gradient(180deg, rgba(7, 59, 76, 0.88) 0%, rgba(11, 111, 143, 0.68) 46%, rgba(7, 59, 76, 0.94) 100%);
   }
 }
+
+/* Red Sea Coral Atlas chronological refinement: sequence markers and compact activity modules support the simplified Flight → Hotel → Facilities → Activities/Schedule → Checklist flow. */
+.chron-section {
+  scroll-margin-top: 6rem;
+}
+
+.facilities-section {
+  position: relative;
+}
+
+.facility-card {
+  min-height: 100%;
+  background: linear-gradient(145deg, rgba(255, 243, 216, 0.96), rgba(223, 247, 244, 0.9));
+  border-color: rgba(25, 169, 184, 0.22);
+}
+
+.activity-shortlist {
+  margin-top: 2rem;
+  padding: clamp(1.1rem, 2vw, 1.75rem);
+  border: 1px solid rgba(25, 169, 184, 0.22);
+  background:
+    radial-gradient(circle at 12% 8%, rgba(121, 215, 219, 0.24), transparent 18rem),
+    linear-gradient(135deg, rgba(255, 243, 216, 0.92), rgba(255, 250, 239, 0.86));
+  box-shadow: 0 28px 80px rgba(7, 59, 76, 0.08);
+}
+
+.activity-shortlist__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  color: #073b4c;
+}
+
+.activity-shortlist__header svg {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0.55rem;
+  color: #e7533f;
+  background: rgba(231, 83, 63, 0.12);
+  border-radius: 999px;
+}
+
+.activity-shortlist__header h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display, Georgia, serif);
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  color: #073b4c;
+}
+
+.activity-shortlist__header p {
+  margin: 0;
+  max-width: 62ch;
+  color: rgba(7, 59, 76, 0.72);
+}
+
+.compact-grid {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 0.9rem;
+}
+
+.compact-card {
+  padding: 1rem;
+}
+
+.compact-card h3 {
+  font-size: 1.1rem;
+}
+
+.compact-card p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .activity-shortlist__header {
+    flex-direction: column;
+  }
+}
