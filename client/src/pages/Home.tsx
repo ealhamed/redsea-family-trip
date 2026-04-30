@@ -430,7 +430,6 @@ export default function Home() {
         <nav className="topbar" aria-label="Trip chronology navigation">
           <a href="#flights">Flight</a>
           <a href="#hotel">Hotel</a>
-          <a href="#nearby">Explore</a>
           <a href="#facilities">Facilities</a>
           <a href="#schedule">Activities</a>
           <a href="#packing">Checklist</a>
