@@ -77,3 +77,26 @@
 - [x] Make Both-calendar activities appear as one large shared block spanning Kids and Parents columns.
 - [x] Preserve mobile readability, Red Sea Coral Atlas visual identity, and hidden financial details.
 - [x] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.
+
+## Webpage critique
+
+- [x] Review the current homepage structure, visual hierarchy, and navigation.
+- [x] Review the family scheduling workflow, quick-add behavior, and restaurant decision flow.
+- [x] Identify what works, what is confusing, and what should be improved first.
+- [x] Deliver a concise prioritized critique without making code changes unless requested.
+
+## Vercel deployment preparation
+
+- [ ] Confirm external Vercel hosting is still desired despite Manus built-in hosting and custom domain support.
+- [ ] Inspect the project build scripts and static-output configuration for Vercel compatibility.
+- [ ] Inspect the configured Vercel connector status and available deployment/project tools.
+- [ ] Add or adjust Vercel configuration only if needed for the static React app.
+- [ ] Run production build validation before any deployment handoff.
+- [ ] Provide a safe deployment handoff, link, or exact Vercel next steps.
+
+## Restore Manus-hosted pictures
+
+- [x] Confirm whether any image paths were changed during cancelled Vercel preparation.
+- [x] Restore the original `/manus-storage/` image paths for Manus publishing if needed. Confirmed no source restoration was required; paths were already using `/manus-storage/`.
+- [x] Verify TypeScript and production build after picture restoration.
+- [ ] Save a clean checkpoint for Manus publishing.
