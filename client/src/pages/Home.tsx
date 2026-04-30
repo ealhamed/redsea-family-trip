@@ -38,13 +38,14 @@ type ChecklistItem = {
   group: ChecklistGroup;
 };
 
-type ScheduleLane = "Family" | "Kids" | "Parents" | "Dining" | "Reset";
+type ScheduleCalendar = "Both" | "Kids" | "Parents";
 
 type ScheduleBlock = {
   id: string;
   day: "Wed" | "Thu" | "Fri" | "Sat";
-  time: string;
-  lane: ScheduleLane;
+  startTime: string;
+  endTime: string;
+  calendar: ScheduleCalendar;
   title: string;
   note: string;
 };
@@ -115,15 +116,15 @@ const defaultChecklist: ChecklistItem[] = [
 ];
 
 const defaultSchedule: ScheduleBlock[] = [
-  { id: "wed-arrive", day: "Wed", time: "12:30", lane: "Family", title: "Arrive RSI", note: "Transfer to SLS via Shura causeway." },
-  { id: "wed-room", day: "Wed", time: "15:00", lane: "Reset", title: "Suite reset", note: "Unpack, assign sleeping zones, keep evening easy." },
-  { id: "wed-dinner", day: "Wed", time: "18:30", lane: "Dining", title: "Fi’lia or Deluxe", note: "Simple first-night dinner; family-friendly Italian or light bites." },
-  { id: "thu-kids", day: "Thu", time: "10:30", lane: "Kids", title: "Kids’ Club", note: "Workshops, crafts, outdoor games, or pool games depending on the daily programme." },
-  { id: "thu-parents", day: "Thu", time: "10:30", lane: "Parents", title: "Ciel Spa / padel", note: "Parents can stack a wellness or active block while kids are supervised." },
-  { id: "thu-family", day: "Thu", time: "16:30", lane: "Family", title: "Kayak or paddleboard", note: "Keep it low-pressure and weather-dependent." },
-  { id: "fri-kids", day: "Fri", time: "17:30", lane: "Kids", title: "Mini disco / cinema", note: "Check actual programme with concierge." },
-  { id: "fri-parents", day: "Fri", time: "17:30", lane: "Parents", title: "Seabird golden hour", note: "Seafood-led dinner slot if available." },
-  { id: "sat-exit", day: "Sat", time: "10:30", lane: "Family", title: "Room sweep + checkout", note: "Quiet exit rhythm before RSI flight." },
+  { id: "wed-arrive", day: "Wed", startTime: "12:30", endTime: "13:30", calendar: "Both", title: "Arrive RSI", note: "Transfer to SLS via Shura causeway." },
+  { id: "wed-room", day: "Wed", startTime: "15:00", endTime: "16:30", calendar: "Both", title: "Suite reset", note: "Unpack, assign sleeping zones, keep evening easy." },
+  { id: "wed-dinner", day: "Wed", startTime: "18:30", endTime: "20:00", calendar: "Both", title: "Fi’lia or Deluxe", note: "Simple first-night dinner; family-friendly Italian or light bites." },
+  { id: "thu-kids", day: "Thu", startTime: "10:30", endTime: "12:30", calendar: "Kids", title: "Kids’ Club", note: "Workshops, crafts, outdoor games, or pool games depending on the daily programme." },
+  { id: "thu-parents", day: "Thu", startTime: "10:30", endTime: "12:30", calendar: "Parents", title: "Ciel Spa / padel", note: "Parents can stack a wellness or active block while kids are supervised." },
+  { id: "thu-family", day: "Thu", startTime: "16:30", endTime: "17:30", calendar: "Both", title: "Kayak or paddleboard", note: "Keep it low-pressure and weather-dependent." },
+  { id: "fri-kids", day: "Fri", startTime: "17:30", endTime: "19:00", calendar: "Kids", title: "Mini disco / cinema", note: "Check actual programme with concierge." },
+  { id: "fri-parents", day: "Fri", startTime: "17:30", endTime: "19:00", calendar: "Parents", title: "Seabird golden hour", note: "Seafood-led dinner slot if available." },
+  { id: "sat-exit", day: "Sat", startTime: "10:30", endTime: "11:30", calendar: "Both", title: "Room sweep + checkout", note: "Quiet exit rhythm before RSI flight." },
 ];
 
 const experiences = [
@@ -271,6 +272,70 @@ function ChecklistRow({ item, checked, onToggle, onRemove }: { item: ChecklistIt
   );
 }
 
+function calendarForTag(tag: string): ScheduleCalendar {
+  if (tag.toLowerCase().includes("parent") || tag.toLowerCase().includes("golf")) return "Parents";
+  if (tag.toLowerCase().includes("kids") || tag.toLowerCase().includes("teens")) return "Kids";
+  return "Both";
+}
+
+function QuickAddActivity({ experience, selectedDay, onAdd }: { experience: (typeof experiences)[number]; selectedDay: ScheduleBlock["day"]; onAdd: (block: Omit<ScheduleBlock, "id">) => void }) {
+  const [startTime, setStartTime] = useState("10:00");
+  const [endTime, setEndTime] = useState("11:30");
+  const [calendar, setCalendar] = useState<ScheduleCalendar>(() => calendarForTag(experience.tag));
+
+  const quickAdd = () => {
+    onAdd({
+      day: selectedDay,
+      startTime,
+      endTime,
+      calendar,
+      title: experience.title,
+      note: experience.detail,
+    });
+  };
+
+  return (
+    <div className="quick-add-panel" aria-label={`Quick add ${experience.title}`}>
+      <div className="quick-add-panel__label">Quick add</div>
+      <label>
+        <span>Begins</span>
+        <input type="time" value={startTime} onChange={(event) => setStartTime(event.target.value)} />
+      </label>
+      <label>
+        <span>Ends</span>
+        <input type="time" value={endTime} onChange={(event) => setEndTime(event.target.value)} />
+      </label>
+      <label>
+        <span>Calendar</span>
+        <select value={calendar} onChange={(event) => setCalendar(event.target.value as ScheduleCalendar)}>
+          {(["Both", "Kids", "Parents"] as ScheduleCalendar[]).map((option) => <option key={option} value={option}>{option}</option>)}
+        </select>
+      </label>
+      <button onClick={quickAdd}><Plus size={15} /> Add</button>
+    </div>
+  );
+}
+
+function ScheduleColumn({ label, blocks, onRemove }: { label: "Kids" | "Parents"; blocks: ScheduleBlock[]; onRemove: (id: string) => void }) {
+  const visibleBlocks = blocks.filter((block) => block.calendar === "Both" || block.calendar === label);
+
+  return (
+    <div className={`schedule-column schedule-column--${label.toLowerCase()}`}>
+      <h3>{label}</h3>
+      {visibleBlocks.length === 0 ? <p className="schedule-empty">No blocks yet. Use quick add below.</p> : null}
+      {visibleBlocks.map((block) => (
+        <article key={`${label}-${block.id}`} className={`schedule-block calendar-${block.calendar.toLowerCase()}`}>
+          <button onClick={() => onRemove(block.id)} aria-label={`Remove ${block.title}`}><Trash2 size={14} /></button>
+          <span>{block.startTime}–{block.endTime}</span>
+          <strong>{block.title}</strong>
+          <em>{block.calendar === "Both" ? "Both calendars" : `${block.calendar} only`}</em>
+          <p>{block.note}</p>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   const [checklistItems, setChecklistItems] = useState<ChecklistItem[]>(defaultChecklist);
   const [checked, setChecked] = useState<string[]>(["ids", "boarding"]);
@@ -278,7 +343,7 @@ export default function Home() {
   const [newGroup, setNewGroup] = useState<ChecklistGroup>("Kids");
   const [scheduleBlocks, setScheduleBlocks] = useState<ScheduleBlock[]>(defaultSchedule);
   const [selectedDay, setSelectedDay] = useState<ScheduleBlock["day"]>("Thu");
-  const [activityForm, setActivityForm] = useState({ time: "11:00", lane: "Family" as ScheduleLane, title: "", note: "" });
+  const [activityForm, setActivityForm] = useState({ startTime: "11:00", endTime: "12:00", calendar: "Both" as ScheduleCalendar, title: "", note: "" });
 
   const progress = useMemo(() => {
     if (checklistItems.length === 0) return 0;
@@ -286,7 +351,7 @@ export default function Home() {
   }, [checked.length, checklistItems.length]);
 
   const dayBlocks = useMemo(
-    () => scheduleBlocks.filter((block) => block.day === selectedDay).sort((a, b) => a.time.localeCompare(b.time)),
+    () => scheduleBlocks.filter((block) => block.day === selectedDay).sort((a, b) => a.startTime.localeCompare(b.startTime) || a.endTime.localeCompare(b.endTime)),
     [scheduleBlocks, selectedDay],
   );
 
@@ -310,18 +375,27 @@ export default function Home() {
   const addScheduleBlock = () => {
     const title = activityForm.title.trim();
     if (!title) return;
+    addBlockToSchedule({
+      day: selectedDay,
+      startTime: activityForm.startTime,
+      endTime: activityForm.endTime,
+      calendar: activityForm.calendar,
+      title,
+      note: activityForm.note.trim() || "Flexible block — confirm details later.",
+    });
+    setActivityForm((current) => ({ ...current, title: "", note: "" }));
+  };
+
+  const addBlockToSchedule = (block: Omit<ScheduleBlock, "id">) => {
+    const safeEndTime = block.endTime > block.startTime ? block.endTime : block.startTime;
     setScheduleBlocks((current) => [
       ...current,
       {
-        id: `activity-${Date.now()}`,
-        day: selectedDay,
-        time: activityForm.time,
-        lane: activityForm.lane,
-        title,
-        note: activityForm.note.trim() || "Flexible block — confirm details later.",
+        ...block,
+        endTime: safeEndTime,
+        id: `activity-${Date.now()}-${Math.random().toString(16).slice(2)}`,
       },
     ]);
-    setActivityForm((current) => ({ ...current, title: "", note: "" }));
   };
 
   const removeScheduleBlock = (id: string) => {
@@ -452,8 +526,8 @@ export default function Home() {
       </section>
 
       <section id="schedule" className="schedule-section container chron-section">
-        <SectionHeader eyebrow="04 · Hotel activities + schedule" title="Stack kids, parents, family and dining blocks">
-          Add kids club, parent time, restaurants, pool blocks and reset periods on the same day. This is built for “kids there, parents elsewhere” planning.
+        <SectionHeader eyebrow="04 · Hotel activities + schedule" title="One long day, split by Kids and Parents">
+          Use Quick add from the activity ideas below, choose beginning and end time, then decide whether the block applies to Both, Kids only, or Parents only. Both is the default family calendar.
         </SectionHeader>
         <div className="schedule-shell">
           <div className="schedule-controls">
@@ -462,28 +536,25 @@ export default function Home() {
             ))}
           </div>
           <div className="activity-form">
-            <input type="time" value={activityForm.time} onChange={(event) => setActivityForm((current) => ({ ...current, time: event.target.value }))} />
-            <select value={activityForm.lane} onChange={(event) => setActivityForm((current) => ({ ...current, lane: event.target.value as ScheduleLane }))}>
-              {(["Family", "Kids", "Parents", "Dining", "Reset"] as ScheduleLane[]).map((lane) => <option key={lane} value={lane}>{lane}</option>)}
+            <input type="time" aria-label="Beginning time" value={activityForm.startTime} onChange={(event) => setActivityForm((current) => ({ ...current, startTime: event.target.value }))} />
+            <input type="time" aria-label="End time" value={activityForm.endTime} onChange={(event) => setActivityForm((current) => ({ ...current, endTime: event.target.value }))} />
+            <select aria-label="Calendar assignment" value={activityForm.calendar} onChange={(event) => setActivityForm((current) => ({ ...current, calendar: event.target.value as ScheduleCalendar }))}>
+              {(["Both", "Kids", "Parents"] as ScheduleCalendar[]).map((calendar) => <option key={calendar} value={calendar}>{calendar}</option>)}
             </select>
             <input placeholder="Activity title" value={activityForm.title} onChange={(event) => setActivityForm((current) => ({ ...current, title: event.target.value }))} />
             <input placeholder="Optional note" value={activityForm.note} onChange={(event) => setActivityForm((current) => ({ ...current, note: event.target.value }))} />
             <button onClick={addScheduleBlock}><Plus size={16} /> Add</button>
           </div>
-          <div className="schedule-lanes">
-            {(["Family", "Kids", "Parents", "Dining", "Reset"] as ScheduleLane[]).map((lane) => (
-              <div className="schedule-lane" key={lane}>
-                <h3>{lane}</h3>
-                {dayBlocks.filter((block) => block.lane === lane).map((block) => (
-                  <article key={block.id} className={`schedule-block lane-${lane.toLowerCase()}`}>
-                    <button onClick={() => removeScheduleBlock(block.id)} aria-label={`Remove ${block.title}`}><Trash2 size={14} /></button>
-                    <span>{block.time}</span>
-                    <strong>{block.title}</strong>
-                    <p>{block.note}</p>
-                  </article>
-                ))}
-              </div>
-            ))}
+          <div className="schedule-day-board" aria-label={`${selectedDay} family schedule`}>
+            <div className="schedule-time-rail">
+              <strong>{selectedDay}</strong>
+              <span>Morning</span>
+              <span>Midday</span>
+              <span>Afternoon</span>
+              <span>Evening</span>
+            </div>
+            <ScheduleColumn label="Kids" blocks={dayBlocks} onRemove={removeScheduleBlock} />
+            <ScheduleColumn label="Parents" blocks={dayBlocks} onRemove={removeScheduleBlock} />
           </div>
         </div>
 
@@ -505,6 +576,7 @@ export default function Home() {
                   <h3>{experience.title}</h3>
                   <strong>{experience.priority}</strong>
                   <p>{experience.detail}</p>
+                  <QuickAddActivity experience={experience} selectedDay={selectedDay} onAdd={addBlockToSchedule} />
                 </article>
               );
             })}

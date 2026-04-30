@@ -53,3 +53,13 @@
 - [x] Suggest what to explore at each hotel, with a practical booking or concierge action where relevant.
 - [x] Preserve the chronological app flow and keep financial/payment details hidden.
 - [x] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.
+
+## Activity quick-add and two-column family schedule
+
+- [x] Add a Quick add action to each listed activity below the activities section.
+- [x] Let users choose beginning time and end time before adding an activity to the schedule.
+- [x] Let users choose calendar assignment: Both by default, Kids only, or Parents only.
+- [x] Replace or reshape the schedule display into one long-day schedule with separate Kids and Parents columns.
+- [x] Ensure activities assigned to Both appear in both Kids and Parents columns.
+- [x] Preserve the Red Sea Coral Atlas visual identity, mobile readability, and hidden financial details.
+- [x] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.
