@@ -953,3 +953,371 @@
     grid-column: 2;
   }
 }
+
+/* Red Sea Expedition Modernism extension: real SLS imagery, stacked planning, editable family logistics, and source-backed booking priorities. */
+.real-photo-hero .hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(12, 47, 42, 0.93) 0%, rgba(12, 47, 42, 0.7) 38%, rgba(12, 47, 42, 0.18) 100%),
+    linear-gradient(0deg, rgba(12, 47, 42, 0.76), transparent 46%);
+}
+
+.hotel-card__image-stack {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.75rem;
+  min-height: 520px;
+  padding: 0.75rem;
+  background: rgba(23, 61, 54, 0.92);
+}
+
+.hotel-card__image-stack img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  filter: saturate(1.03) contrast(1.02);
+}
+
+.hotel-card__image-stack img:first-child {
+  grid-row: span 2;
+}
+
+.source-note {
+  margin-top: 1.2rem;
+  padding: 1rem;
+  background: rgba(238, 166, 116, 0.13);
+  border-left: 4px solid #c56d4c;
+  color: rgba(23, 61, 54, 0.78);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+.schedule-section,
+.experiences-section {
+  margin-top: clamp(4rem, 9vw, 7rem);
+}
+
+.schedule-shell {
+  background:
+    linear-gradient(135deg, rgba(255, 249, 233, 0.92), rgba(238, 225, 196, 0.8)),
+    radial-gradient(circle at top right, rgba(101, 175, 180, 0.18), transparent 26rem);
+  border: 1px solid rgba(23, 61, 54, 0.15);
+  box-shadow: 0 28px 80px rgba(23, 61, 54, 0.14);
+  padding: clamp(1rem, 3vw, 2rem);
+}
+
+.schedule-controls {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.schedule-controls button,
+.activity-form button,
+.add-checklist button {
+  border: 0;
+  background: #173d36;
+  color: #fff9e9;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  padding: 0.82rem 1rem;
+  transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.schedule-controls button {
+  background: rgba(23, 61, 54, 0.1);
+  color: #173d36;
+  border: 1px solid rgba(23, 61, 54, 0.16);
+}
+
+.schedule-controls button.active,
+.schedule-controls button:hover,
+.activity-form button:hover,
+.add-checklist button:hover {
+  transform: translateY(-2px);
+  background: #c56d4c;
+  box-shadow: 0 14px 30px rgba(23, 61, 54, 0.12);
+}
+
+.activity-form,
+.add-checklist {
+  display: grid;
+  grid-template-columns: 130px 150px minmax(180px, 1fr) minmax(180px, 1.2fr) auto;
+  gap: 0.7rem;
+  margin-bottom: 1.3rem;
+}
+
+.add-checklist {
+  grid-template-columns: minmax(180px, 1fr) 140px auto;
+  margin: 1rem 0 1.2rem;
+}
+
+.activity-form input,
+.activity-form select,
+.add-checklist input,
+.add-checklist select {
+  min-width: 0;
+  background: rgba(255, 249, 233, 0.78);
+  color: #173d36;
+  border: 1px solid rgba(23, 61, 54, 0.2);
+  padding: 0.85rem 0.9rem;
+  font-weight: 700;
+  outline: none;
+}
+
+.activity-form input:focus,
+.activity-form select:focus,
+.add-checklist input:focus,
+.add-checklist select:focus {
+  box-shadow: 0 0 0 3px rgba(197, 109, 76, 0.22);
+  border-color: rgba(197, 109, 76, 0.5);
+}
+
+.schedule-lanes {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.8rem;
+  align-items: start;
+}
+
+.schedule-lane {
+  min-height: 260px;
+  background: rgba(255, 249, 233, 0.55);
+  border: 1px dashed rgba(23, 61, 54, 0.2);
+  padding: 0.85rem;
+}
+
+.schedule-lane h3 {
+  font-family: "Fraunces", Georgia, serif;
+  margin: 0 0 0.85rem;
+  font-size: 1.2rem;
+  letter-spacing: -0.04em;
+  color: #173d36;
+}
+
+.schedule-block {
+  position: relative;
+  background: #fff9e9;
+  border-left: 5px solid #65afb4;
+  padding: 0.85rem 0.85rem 0.95rem;
+  margin-bottom: 0.7rem;
+  box-shadow: 0 15px 36px rgba(23, 61, 54, 0.1);
+}
+
+.schedule-block button {
+  position: absolute;
+  right: 0.45rem;
+  top: 0.45rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  background: rgba(23, 61, 54, 0.08);
+  color: #173d36;
+}
+
+.schedule-block span {
+  display: block;
+  font-size: 0.76rem;
+  color: #a14f38;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.35rem;
+}
+
+.schedule-block strong {
+  display: block;
+  padding-right: 1.6rem;
+  line-height: 1.25;
+}
+
+.schedule-block p {
+  margin: 0.45rem 0 0;
+  color: rgba(23, 61, 54, 0.7);
+  line-height: 1.55;
+  font-size: 0.88rem;
+}
+
+.lane-kids { border-left-color: #65afb4; }
+.lane-parents { border-left-color: #c56d4c; }
+.lane-dining { border-left-color: #c6a65b; }
+.lane-reset { border-left-color: #8aa077; }
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.experience-card {
+  background: rgba(255, 249, 233, 0.86);
+  border: 1px solid rgba(23, 61, 54, 0.15);
+  padding: 1.2rem;
+  min-height: 280px;
+  box-shadow: 0 24px 60px rgba(23, 61, 54, 0.1);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 70px rgba(23, 61, 54, 0.14);
+}
+
+.experience-card > svg {
+  color: #c56d4c;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+}
+
+.experience-card h3,
+.restaurant-board__intro h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin: 0.8rem 0 0.55rem;
+}
+
+.experience-card strong {
+  display: block;
+  color: #a14f38;
+  margin-bottom: 0.7rem;
+}
+
+.experience-card p,
+.restaurant-board p {
+  color: rgba(23, 61, 54, 0.72);
+  line-height: 1.65;
+}
+
+.restaurant-board {
+  margin-top: 1.2rem;
+  display: grid;
+  grid-template-columns: 0.52fr 1.48fr;
+  gap: 1rem;
+}
+
+.restaurant-board__intro,
+.restaurant-table {
+  background: rgba(23, 61, 54, 0.94);
+  color: #fff9e9;
+  padding: 1.25rem;
+}
+
+.restaurant-board__intro svg {
+  color: #ee9a6a;
+}
+
+.restaurant-board__intro p {
+  color: rgba(255, 249, 233, 0.76);
+}
+
+.restaurant-table {
+  display: grid;
+  gap: 0.65rem;
+  background: rgba(255, 249, 233, 0.76);
+  color: #173d36;
+  border: 1px solid rgba(23, 61, 54, 0.13);
+}
+
+.restaurant-table article {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 110px;
+  gap: 0.8rem;
+  align-items: start;
+  background: rgba(255, 249, 233, 0.88);
+  padding: 0.9rem;
+  border-left: 4px solid rgba(197, 109, 76, 0.62);
+}
+
+.restaurant-table article div:first-child strong,
+.restaurant-table article div:first-child span {
+  display: block;
+}
+
+.restaurant-table article div:first-child span,
+.restaurant-table article p {
+  color: rgba(23, 61, 54, 0.64);
+  font-size: 0.9rem;
+}
+
+.restaurant-table article p {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.check-row-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem;
+  align-items: stretch;
+}
+
+.check-row-shell--done .check-row span:nth-child(2) {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(197, 109, 76, 0.55);
+}
+
+.check-row {
+  width: 100%;
+}
+
+.remove-check {
+  border: 0;
+  width: 2.45rem;
+  display: inline-grid;
+  place-items: center;
+  background: rgba(23, 61, 54, 0.08);
+  color: #173d36;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.remove-check:hover {
+  background: rgba(197, 109, 76, 0.2);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 1080px) {
+  .schedule-lanes,
+  .experience-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .activity-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .restaurant-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .hotel-card__image-stack {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    min-height: auto;
+  }
+
+  .hotel-card__image-stack img,
+  .hotel-card__image-stack img:first-child {
+    grid-row: auto;
+    min-height: 220px;
+  }
+
+  .schedule-lanes,
+  .experience-grid,
+  .activity-form,
+  .add-checklist {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-table article {
+    grid-template-columns: 1fr;
+  }
+}
