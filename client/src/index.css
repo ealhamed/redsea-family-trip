@@ -2086,3 +2086,153 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+
+/**
+ * Design philosophy reminder for nearby-hotel cards: Red Sea Coral Atlas.
+ * These cards should read like practical coral-map annotations, not promotional hotel tiles.
+ */
+.nearby-section {
+  margin-bottom: 5.8rem;
+}
+
+.nearby-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.nearby-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 100%;
+  padding: clamp(1.05rem, 2vw, 1.45rem);
+  background:
+    linear-gradient(145deg, rgba(255, 249, 233, 0.92), rgba(223, 247, 244, 0.72)),
+    radial-gradient(circle at 84% 12%, rgba(25, 169, 184, 0.2), transparent 13rem);
+  border: 1px solid rgba(23, 61, 54, 0.14);
+  box-shadow: 0 20px 54px rgba(23, 61, 54, 0.12);
+}
+
+.nearby-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.42rem;
+  background: var(--redsea-turquoise);
+}
+
+.nearby-card--sls::before { background: var(--redsea-coral); }
+.nearby-card--edition::before { background: var(--redsea-turquoise); }
+.nearby-card--intercontinental::before { background: var(--redsea-amber); }
+
+.nearby-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #0b4e5c;
+}
+
+.nearby-card__tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.42rem 0.7rem;
+  background: rgba(7, 59, 76, 0.08);
+  border: 1px solid rgba(7, 59, 76, 0.12);
+  color: #073b4c;
+  font-size: 0.72rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.nearby-card h3 {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.85rem, 3.2vw, 2.75rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  margin: 1.3rem 0 0.75rem;
+  color: #173d36;
+}
+
+.nearby-card > strong {
+  display: block;
+  font-size: 0.98rem;
+  color: #b62f2a;
+  margin-bottom: 0.65rem;
+}
+
+.nearby-card p {
+  margin: 0;
+  line-height: 1.7;
+  color: rgba(23, 61, 54, 0.76);
+}
+
+.nearby-card__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0 1.05rem;
+}
+
+.nearby-card__highlights span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.48rem 0.62rem;
+  background: rgba(255, 243, 216, 0.78);
+  border: 1px solid rgba(25, 169, 184, 0.18);
+  color: #174b42;
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.nearby-card__action {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(23, 61, 54, 0.2);
+  color: #073b4c;
+  font-size: 0.88rem;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.nearby-card__action svg {
+  color: var(--redsea-coral);
+  margin-top: 0.12rem;
+}
+
+@media (max-width: 980px) {
+  .nearby-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nearby-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .nearby-section {
+    margin-bottom: 3.8rem;
+  }
+
+  .nearby-card {
+    padding: 1rem;
+  }
+
+  .nearby-card h3 {
+    font-size: 2rem;
+  }
+
+  .nearby-card__highlights span {
+    width: 100%;
+  }
+}

@@ -44,3 +44,12 @@
 - [ ] Ensure checklist rows, inputs, select controls, and add buttons are thumb-friendly.
 - [ ] Reduce oversized typography and card padding on small screens while preserving Red Sea Coral Atlas visual identity.
 - [ ] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.
+
+## Better SLS visual and nearby hotel exploration
+
+- [x] Replace the weak cropped lounge/wall image with a stronger real SLS lobby, wide resort, arrival, pool, or hotel exterior image.
+- [x] Research official or reliable information for SLS Red Sea, The Red Sea EDITION, and InterContinental Red Sea Resort.
+- [x] Add a nearby-hotel exploration section that clearly tags recommendations by property: SLS, EDITION, and InterContinental.
+- [x] Suggest what to explore at each hotel, with a practical booking or concierge action where relevant.
+- [x] Preserve the chronological app flow and keep financial/payment details hidden.
+- [x] Run TypeScript, production build, and privacy wording checks before saving a checkpoint.

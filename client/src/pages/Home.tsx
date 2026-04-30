@@ -25,7 +25,7 @@ import {
  */
 
 const heroImage = "/manus-storage/shura-island-aerial_a7dc46b4.jpg";
-const routeImage = "/manus-storage/sls-redsea-lounge_59c504e7.jpg";
+const routeImage = "/manus-storage/tes4LOQdHCzj_c74d3079.jpg";
 const suiteImage = "/manus-storage/sls-redsea-bedroom_7cceef22.jpg";
 const suiteDetailImage = "/manus-storage/sls-redsea-suite-bedroom_dd3f74e9.jpg";
 const terraceImage = "/manus-storage/sls-redsea-bath-terrace_e67a4ad5.jpg";
@@ -177,8 +177,36 @@ const restaurants = [
   { name: "Floating World", cuisine: "Japanese-influenced", bestFor: "Parents’ dinner", book: "High", note: "Best kept for a quieter adults’ slot if kids are covered." },
   { name: "The Perch", cuisine: "Poolside refreshments", bestFor: "Afternoon reset", book: "Medium", note: "Useful between pool, beach and kids club transitions." },
   { name: "Deluxe", cuisine: "Café, pastries, light bites", bestFor: "Casual gaps", book: "Low", note: "Good for coffee, snacks and practical family downtime." },
-  { name: "Four Seasons Al Forn", cuisine: "Levantine", bestFor: "Alternative Shura dinner", book: "Check access", note: "Confirm cross-resort dining access before relying on it." },
-  { name: "Four Seasons Spiaggia", cuisine: "Italian beachside", bestFor: "Beach lunch", book: "Check access", note: "Confirm availability for non-guests before planning around it." },
+];
+
+const nearbyHotels = [
+  {
+    property: "SLS The Red Sea",
+    tag: "Your hotel",
+    tone: "sls",
+    headline: "Keep this as the family basecamp.",
+    bestFor: "Pools, Ciel Spa, beach time, gym, and the five SLS dining venues without leaving your home base.",
+    action: "Ask concierge on arrival to map Kids’ Club, spa, pool and dinner windows into one simple family rhythm.",
+    highlights: ["Three pools including rooftop options", "24/7 gym and spa", "Fi’lia, Seabird, Floating World, The Perch, Deluxe"],
+  },
+  {
+    property: "The Red Sea EDITION",
+    tag: "Nearby",
+    tone: "edition",
+    headline: "Use it for one stylish off-base dining moment.",
+    bestFor: "Jiwa Beach Club for an evening couple plan, Jiwa Terrace for poolside lunch, Central for an easy three-meal fallback, and Lobby for tea or an evening lounge feel.",
+    action: "Reserve ahead through concierge, especially for Jiwa Beach Club or any evening slot.",
+    highlights: ["Jiwa Beach Club: Southeast Asian evening energy", "Jiwa Terrace: Indonesian poolside lunch", "Lobby: Aperi-Tea and weekend reception"],
+  },
+  {
+    property: "InterContinental Red Sea Resort",
+    tag: "Nearby",
+    tone: "intercontinental",
+    headline: "Best for variety if you want another resort stop.",
+    bestFor: "Chimes for Mediterranean poolside dining, Darein for Levantine-Moroccan comfort, Murrma for coffee and sweets, with Ardo and The 305 to verify if open during the stay.",
+    action: "Ask SLS concierge to confirm cross-resort access and current opening status before adding it to the day plan.",
+    highlights: ["Chimes: Mediterranean poolside", "Darein: Levantine-Moroccan", "Murrma: specialty coffee and sweets"],
+  },
 ];
 
 function Pill({ children, tone = "sand" }: { children: React.ReactNode; tone?: "sand" | "green" | "coral" }) {
@@ -308,6 +336,7 @@ export default function Home() {
         <nav className="topbar" aria-label="Trip chronology navigation">
           <a href="#flights">Flight</a>
           <a href="#hotel">Hotel</a>
+          <a href="#nearby">Explore</a>
           <a href="#facilities">Facilities</a>
           <a href="#schedule">Activities</a>
           <a href="#packing">Checklist</a>
@@ -340,7 +369,7 @@ export default function Home() {
 
       <section id="flights" className="route-section container chron-section">
         <div className="route-visual">
-          <img src={routeImage} alt="Real SLS The Red Sea interior lounge photograph" />
+          <img src={routeImage} alt="Real SLS The Red Sea wide resort interior photograph" />
         </div>
         <div className="route-content">
           <SectionHeader eyebrow="01 · Flight" title="Riyadh to Red Sea, then back home">
@@ -373,6 +402,34 @@ export default function Home() {
               <span><ShieldCheck size={17} /> Private family view</span>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="nearby" className="nearby-section container chron-section">
+        <SectionHeader eyebrow="Hotel side quest" title="Explore nearby hotels without mixing the plan">
+          Keep SLS as home base, then add one clearly tagged nearby stop only if it improves the day. Each card separates the property, why to go, and the practical concierge action.
+        </SectionHeader>
+        <div className="nearby-grid">
+          {nearbyHotels.map((hotel) => (
+            <article key={hotel.property} className={`nearby-card nearby-card--${hotel.tone}`}>
+              <div className="nearby-card__top">
+                <span className="nearby-card__tag">{hotel.tag}</span>
+                <Hotel size={24} />
+              </div>
+              <h3>{hotel.property}</h3>
+              <strong>{hotel.headline}</strong>
+              <p>{hotel.bestFor}</p>
+              <div className="nearby-card__highlights">
+                {hotel.highlights.map((highlight) => (
+                  <span key={highlight}>{highlight}</span>
+                ))}
+              </div>
+              <div className="nearby-card__action">
+                <Utensils size={17} />
+                <span>{hotel.action}</span>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
