@@ -99,4 +99,14 @@
 - [x] Confirm whether any image paths were changed during cancelled Vercel preparation.
 - [x] Restore the original `/manus-storage/` image paths for Manus publishing if needed. Confirmed no source restoration was required; paths were already using `/manus-storage/`.
 - [x] Verify TypeScript and production build after picture restoration.
-- [ ] Save a clean checkpoint for Manus publishing.
+- [x] Save a clean checkpoint for Manus publishing.
+
+## Schedule timeline formatting fix — Apr 30
+
+- [x] Inspect `Home.tsx` schedule component structure for time gutter, Kids/Parents columns, and shared family blocks.
+- [x] Inspect `index.css` schedule styles for time rail contrast, grid widths, card positioning, and mobile behavior.
+- [x] Fix time label legibility and prevent overlap with Kids column using a dedicated time gutter.
+- [x] Fix breakfast/shared family card rendering so Both activities span Kids and Parents cleanly.
+- [x] Clean up visible schedule formatting errors in the full 7 AM–11 PM board.
+- [x] Run TypeScript, production build, and privacy wording checks.
+- [ ] Save a new checkpoint for the corrected schedule section.

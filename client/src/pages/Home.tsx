@@ -337,8 +337,10 @@ function ScheduleTimeline({ blocks, onRemove }: { blocks: ScheduleBlock[]; onRem
       <div className="schedule-board-header schedule-board-header--time">Time</div>
       <div className="schedule-board-header">Kids</div>
       <div className="schedule-board-header">Parents</div>
-      <div className="schedule-time-rail">
-        {timelineTicks.map((tick) => <span key={tick}>{tick}</span>)}
+      <div className="schedule-time-rail" aria-hidden="true">
+        {timelineTicks.map((tick, index) => (
+          <span key={tick} style={{ top: `${(index / (timelineTicks.length - 1)) * 100}%` }}>{tick}</span>
+        ))}
       </div>
       <div className="schedule-grid-lines" aria-hidden="true">
         {Array.from({ length: timelineRowCount }).map((_, index) => <span key={index} />)}
@@ -536,7 +538,7 @@ export default function Home() {
             <input placeholder="Optional note" value={activityForm.note} onChange={(event) => setActivityForm((current) => ({ ...current, note: event.target.value }))} />
             <button onClick={addScheduleBlock}><Plus size={16} /> Add</button>
           </div>
-<ScheduleTimeline blocks={dayBlocks} onRemove={removeScheduleBlock} />
+          <ScheduleTimeline blocks={dayBlocks} onRemove={removeScheduleBlock} />
         </div>
 
         <div className="activity-shortlist">
