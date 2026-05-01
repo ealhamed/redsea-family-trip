@@ -148,4 +148,14 @@
 - [x] Preserve compact Kids/Parents two-column phone layout and zero horizontal overflow at 320–430 px. Browser automation confirmed 0 px overflow at 320, 360, 390, and 430 px.
 - [x] Run TypeScript and production build validation. `pnpm check` and `pnpm build` passed.
 - [x] Verify alignment and phone responsiveness in browser automation. 9 AM alignment measured within 0.01 px across phone widths, and all Thu visible activity starts measured 0 px off the shared time scale.
-- [ ] Save a new checkpoint for the corrected pixel-accurate timeline.
+- [x] Save a new checkpoint for the corrected pixel-accurate timeline. Version: ebc62f8a.
+
+## BOTH activity spanning and no-overlap schedule fix — May 1
+
+- [x] Inspect current schedule data/rendering and CSS time-scale values. Current BOTH items are duplicated into each lane, and the 4.5rem/hour scale makes one-hour cards too short for readable content.
+- [x] Render activities tagged BOTH as one shared card spanning Kids and Parents columns instead of duplicated cards. The two tracks now share one timebox; BOTH cards span across both lanes.
+- [x] Expand the vertical time scale enough for readable card content while keeping start times aligned to the left rail. Scale increased from 4.5rem/hour to 6.3rem/hour.
+- [x] Prevent consecutive activities from visually overlapping or clipping important text. Browser measurement showed Lunch reset and Suite quiet time now have a 5.6 px gap instead of overlap.
+- [x] Verify mobile widths keep zero horizontal overflow and usable two-column schedule layout. Tested 320, 360, 390, and 430 px with 0 px horizontal overflow and BOTH cards spanning 100% of the combined timebox.
+- [x] Run TypeScript and production build validation. `pnpm check` and `pnpm build` passed after the shared-card update.
+- [ ] Save checkpoint for the shared BOTH-card no-overlap update.
