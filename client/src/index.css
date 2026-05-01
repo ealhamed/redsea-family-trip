@@ -2786,3 +2786,153 @@ a {
     font-size: 0.62rem;
   }
 }
+
+/* Red Sea Coral Atlas — phone-only no-horizontal-scroll correction.
+   Purpose: on narrow devices the page must read vertically only; the schedule becomes a chronological card list instead of a two-track board. */
+@media (max-width: 640px) {
+  html,
+  body,
+  #root,
+  .trip-app {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .trip-app *,
+  .trip-app *::before,
+  .trip-app *::after {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .topbar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow-x: clip;
+    overscroll-behavior-x: auto;
+    scroll-snap-type: none;
+    margin-inline: 0;
+    padding-inline: 0;
+    gap: 0.45rem;
+  }
+
+  .topbar a {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .schedule-shell,
+  .schedule-day-board,
+  .schedule-day-board > *,
+  .schedule-block,
+  .experience-grid,
+  .restaurant-option-grid,
+  .quick-add-panel,
+  .checklist-grid,
+  .flight-grid,
+  .facility-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .schedule-day-board {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow-x: clip;
+    overflow-y: visible;
+    gap: 0.72rem;
+    padding: 0.72rem;
+    border-radius: 1rem;
+  }
+
+  .schedule-board-header,
+  .schedule-time-rail,
+  .schedule-grid-lines {
+    display: none !important;
+  }
+
+  .schedule-block,
+  .schedule-block--both,
+  .calendar-both,
+  .calendar-kids,
+  .calendar-parents {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 7rem;
+    margin: 0;
+    padding: 1rem 0.85rem 0.9rem 3.05rem;
+    border-radius: 0.92rem;
+    overflow: visible;
+  }
+
+  .schedule-block--both::before {
+    content: none;
+  }
+
+  .schedule-block button {
+    top: 0.92rem;
+    left: 0.8rem;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex: 0 0 auto;
+  }
+
+  .schedule-block span {
+    display: block;
+    width: 100%;
+    font-size: 0.82rem;
+    line-height: 1.2;
+    overflow-wrap: anywhere;
+  }
+
+  .schedule-block strong {
+    display: block;
+    width: 100%;
+    margin-top: 0.28rem;
+    font-size: clamp(1.05rem, 6vw, 1.42rem);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+  }
+
+  .schedule-block em {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.15;
+  }
+
+  .schedule-shell .activity-form,
+  .schedule-controls,
+  .quick-add,
+  .add-checklist {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+}
+
+@media (max-width: 390px) {
+  .topbar {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-day-board {
+    padding: 0.58rem;
+  }
+
+  .schedule-block,
+  .schedule-block--both,
+  .calendar-both,
+  .calendar-kids,
+  .calendar-parents {
+    padding-left: 2.85rem;
+    padding-right: 0.72rem;
+  }
+}

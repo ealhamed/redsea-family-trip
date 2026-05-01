@@ -109,4 +109,13 @@
 - [x] Fix breakfast/shared family card rendering so Both activities span Kids and Parents cleanly.
 - [x] Clean up visible schedule formatting errors in the full 7 AM–11 PM board.
 - [x] Run TypeScript, production build, and privacy wording checks.
-- [ ] Save a new checkpoint for the corrected schedule section.
+- [x] Save a new checkpoint for the corrected schedule section.
+
+## Phone no-horizontal-scroll fix — May 1
+
+- [x] Identify which mobile schedule rules force horizontal overflow in the 320–430px viewport range.
+- [x] Replace side-by-side Kids/Parents mobile tracks with a single-column phone layout that preserves readability.
+- [x] Ensure shared Both cards, Kids cards, and Parents cards fit within the phone viewport without clipping.
+- [x] Add global overflow guards for media, sections, and interactive rows without hiding legitimate content.
+- [x] Validate production build and inspect phone-width behavior.
+- [ ] Save a new checkpoint for the corrected phone layout.
