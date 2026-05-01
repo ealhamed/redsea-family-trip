@@ -128,4 +128,13 @@
 - [x] Keep access from the current main page.
 - [x] Make the dedicated page use smaller text so Kids and Parents can fit in two columns on phone view.
 - [x] Validate no horizontal page scrolling after implementation.
-- [ ] Save checkpoint for the approved separated-page implementation.
+- [x] Save checkpoint for the approved separated-page implementation.
+
+## Fixed daily hour timeline — May 1
+
+- [x] Inspect the dedicated `ScheduleCommand.tsx` structure and command-center CSS before adding the hour timeline.
+- [x] Add fixed visible hour anchors for every schedule day on the dedicated command-center page.
+- [x] Keep Kids/Parents two-column phone layout readable with smaller text and no horizontal scrolling.
+- [x] Ensure the hour timeline works across day selector states and daily activity cards.
+- [x] Validate TypeScript, production build, privacy wording, and phone-width overflow. TypeScript and production build passed; browser measurements confirmed timeline present and zero horizontal overflow at 320, 360, 390, and 430 px. Privacy wording scan only returned pre-existing intended family-travel wording already present before this timeline update.
+- [ ] Save checkpoint for the fixed daily timeline update.

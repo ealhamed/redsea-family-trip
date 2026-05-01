@@ -21,6 +21,7 @@ type ScheduleBlock = {
 };
 
 const days = ["Wed", "Thu", "Fri", "Sat"] as ScheduleBlock["day"][];
+const visibleHours = ["7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"];
 
 const defaultSchedule: ScheduleBlock[] = [
   { id: "wed-breakfast", day: "Wed", startTime: "07:30", endTime: "08:15", calendar: "Both", title: "Home breakfast", note: "Keep the morning simple before airport movement." },
@@ -166,15 +167,21 @@ export default function ScheduleCommand() {
           </div>
         </div>
 
-        <div className="command-two-track">
-          <section className="command-track command-track--kids" aria-label="Kids schedule">
-            <h2><Baby size={15} /> Kids</h2>
-            {kidsBlocks.map((block) => <TrackCard key={`kids-${block.id}`} block={block} lane="Kids" onRemove={removeBlock} />)}
-          </section>
-          <section className="command-track command-track--parents" aria-label="Parents schedule">
-            <h2><ShieldCheck size={15} /> Parents</h2>
-            {parentsBlocks.map((block) => <TrackCard key={`parents-${block.id}`} block={block} lane="Parents" onRemove={removeBlock} />)}
-          </section>
+        <div className="command-day-board">
+          <aside className="command-hour-rail" aria-label={`Fixed hour timeline for ${selectedDay}`}>
+            <strong>{selectedDay}</strong>
+            {visibleHours.map((hour) => <span key={hour}>{hour}</span>)}
+          </aside>
+          <div className="command-two-track">
+            <section className="command-track command-track--kids" aria-label="Kids schedule">
+              <h2><Baby size={15} /> Kids</h2>
+              {kidsBlocks.map((block) => <TrackCard key={`kids-${block.id}`} block={block} lane="Kids" onRemove={removeBlock} />)}
+            </section>
+            <section className="command-track command-track--parents" aria-label="Parents schedule">
+              <h2><ShieldCheck size={15} /> Parents</h2>
+              {parentsBlocks.map((block) => <TrackCard key={`parents-${block.id}`} block={block} lane="Parents" onRemove={removeBlock} />)}
+            </section>
+          </div>
         </div>
       </section>
 
