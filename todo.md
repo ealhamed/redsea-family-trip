@@ -165,5 +165,5 @@
 - [x] Inspect current git status, remotes, and package scripts for the website project. Existing origin is the internal project remote; GitHub remote still needs to be added.
 - [x] Create a private GitHub repository for the current website code unless an existing remote is already configured. Created private repo `ealhamed/redsea-family-trip`.
 - [x] Push the current project state to GitHub. Pushed branch `main` to the GitHub remote.
-- [ ] Attempt GitHub Pages setup if compatible with the static build and account permissions.
-- [ ] Verify and share the GitHub repository or Pages link.
+- [x] Attempt GitHub Pages setup if compatible with the static build and account permissions. Built and pushed a `gh-pages` branch, but enabling Pages via GitHub API returned a 403 permission error.
+- [x] Verify and share the GitHub repository or Pages link. Repository exists at https://github.com/ealhamed/redsea-family-trip; live Pages activation needs GitHub Settings permission/manual enablement.
