@@ -167,3 +167,19 @@
 - [x] Push the current project state to GitHub. Pushed branch `main` to the GitHub remote.
 - [x] Attempt GitHub Pages setup if compatible with the static build and account permissions. Built and pushed a `gh-pages` branch, but enabling Pages via GitHub API returned a 403 permission error.
 - [x] Verify and share the GitHub repository or Pages link. Repository exists at https://github.com/ealhamed/redsea-family-trip; live Pages activation needs GitHub Settings permission/manual enablement.
+
+## GitHub Pages 404 remediation — May 1
+
+- [x] Confirm current repository visibility and GitHub Pages configuration. Repository is now public; Pages is not enabled from the API-visible configuration.
+- [x] Change `ealhamed/redsea-family-trip` repository visibility to public if required for Pages access. Repository visibility is now PUBLIC.
+- [x] Enable or update GitHub Pages to serve from the `gh-pages` branch root. User manually enabled Pages in GitHub Settings after API activation was blocked.
+- [x] Verify the expected live URL returns a successful page instead of 404. Confirmed HTTP 200 with page title `Red Sea Family Trip`.
+- [x] Share the final working link and note any remaining GitHub-side propagation delay.
+
+## GitHub Pages schedule route access issue — May 1
+
+- [x] Reproduce the inaccessible deployed schedule page and capture which URLs fail or succeed. Confirmed `/redsea-family-trip/schedule` was not served as a normal Pages route before the fix; `/schedule/` now has a physical `schedule/index.html` entry.
+- [x] Identify whether the issue is caused by GitHub Pages path fallback, Vite base path, or in-app routing links. Root cause was a combination of absolute `/schedule` home links, Wouter not being explicitly scoped to the repository base path, and GitHub Pages lacking a physical schedule entry.
+- [x] Implement the safest route fix for GitHub Pages while preserving Manus/local development behavior. Added Wouter repository base handling, changed home links to `${import.meta.env.BASE_URL}schedule/`, added a `/schedule/` route, and deployed `schedule/index.html` plus `404.html` fallbacks.
+- [x] Rebuild and redeploy the static site to the `gh-pages` branch. `pnpm check` and `GITHUB_PAGES=true pnpm build` passed; latest static artifact was force-pushed to `gh-pages`.
+- [x] Verify the final live schedule link works and share it with the user. Verified `https://ealhamed.github.io/redsea-family-trip/schedule/` returns HTTP 200 and serves the GitHub Pages build.

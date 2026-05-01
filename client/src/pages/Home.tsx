@@ -424,6 +424,8 @@ export default function Home() {
     setScheduleBlocks((current) => current.filter((block) => block.id !== id));
   };
 
+  const scheduleHref = `${import.meta.env.BASE_URL}schedule/`;
+
   return (
     <main className="trip-app">
       <section className="hero-shell real-photo-hero">
@@ -433,7 +435,7 @@ export default function Home() {
           <a href="#flights">Flight</a>
           <a href="#hotel">Hotel</a>
           <a href="#facilities">Facilities</a>
-          <a href="/schedule">Activities</a>
+          <a href={scheduleHref}>Activities</a>
           <a href="#packing">Checklist</a>
         </nav>
         <div className="hero-content">
@@ -445,7 +447,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a href="#flights" className="primary-link">Start with flight</a>
-              <a href="/schedule" className="secondary-link">Open activities calendar</a>
+              <a href={scheduleHref} className="secondary-link">Open activities calendar</a>
             </div>
           </div>
           <aside className="hero-ticket" aria-label="Trip snapshot">
@@ -528,7 +530,7 @@ export default function Home() {
             <h3>Activities command center</h3>
             <p>Use this for the day selector, compact Kids/Parents columns, restaurants, and fast add-ons.</p>
           </div>
-          <a href="/schedule" className="primary-link">Open activities calendar</a>
+          <a href={scheduleHref} className="primary-link">Open activities calendar</a>
         </div>
       </section>
 
