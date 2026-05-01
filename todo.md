@@ -118,4 +118,14 @@
 - [x] Ensure shared Both cards, Kids cards, and Parents cards fit within the phone viewport without clipping.
 - [x] Add global overflow guards for media, sections, and interactive rows without hiding legitimate content.
 - [x] Validate production build and inspect phone-width behavior.
-- [ ] Save a new checkpoint for the corrected phone layout.
+- [x] Save a new checkpoint for the corrected phone layout.
+
+## Separate Calendar/Activities page options — May 1
+
+- [x] Present three credit-efficient implementation options before editing code. Approved option: B — dedicated command-center page.
+- [x] Confirm which option Ebrahim prefers. Ebrahim selected Option B.
+- [x] Separate the current Calendar/Activities experience into a reachable dedicated page.
+- [x] Keep access from the current main page.
+- [x] Make the dedicated page use smaller text so Kids and Parents can fit in two columns on phone view.
+- [x] Validate no horizontal page scrolling after implementation.
+- [ ] Save checkpoint for the approved separated-page implementation.

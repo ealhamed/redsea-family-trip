@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import ScheduleCommand from "./pages/ScheduleCommand";
 
 /**
  * Design philosophy: Red Sea Coral Atlas.
@@ -16,6 +17,7 @@ function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/schedule"} component={ScheduleCommand} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

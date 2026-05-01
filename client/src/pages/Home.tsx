@@ -433,7 +433,7 @@ export default function Home() {
           <a href="#flights">Flight</a>
           <a href="#hotel">Hotel</a>
           <a href="#facilities">Facilities</a>
-          <a href="#schedule">Activities</a>
+          <a href="/schedule">Activities</a>
           <a href="#packing">Checklist</a>
         </nav>
         <div className="hero-content">
@@ -445,7 +445,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a href="#flights" className="primary-link">Start with flight</a>
-              <a href="#schedule" className="secondary-link">Build schedule</a>
+              <a href="/schedule" className="secondary-link">Open activities calendar</a>
             </div>
           </div>
           <aside className="hero-ticket" aria-label="Trip snapshot">
@@ -518,76 +518,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="schedule" className="schedule-section container chron-section">
-        <SectionHeader eyebrow="04 · Hotel activities + schedule" title="One long day, split by Kids and Parents">
-          The board now runs from 7 AM to 11 PM so gaps are visible. Meals, pool time and transfers are preloaded; when a block is assigned to Both, it spans across Kids and Parents as one shared family activity.
+      <section id="schedule" className="schedule-section container chron-section schedule-gateway-section">
+        <SectionHeader eyebrow="04 · Activities calendar" title="Open the dedicated Kids + Parents command center">
+          I separated the calendar and activity builder from the main trip page so the home page stays readable. The schedule now opens in a focused page with compact two-column Kids and Parents lanes for phone view.
         </SectionHeader>
-        <div className="schedule-shell">
-          <div className="schedule-controls">
-            {(["Wed", "Thu", "Fri", "Sat"] as ScheduleBlock["day"][]).map((day) => (
-              <button key={day} className={selectedDay === day ? "active" : ""} onClick={() => setSelectedDay(day)}>{day}</button>
-            ))}
+        <div className="schedule-gateway-card">
+          <div>
+            <span><CalendarDays size={16} /> Wed–Sat</span>
+            <h3>Activities command center</h3>
+            <p>Use this for the day selector, compact Kids/Parents columns, restaurants, and fast add-ons.</p>
           </div>
-          <div className="activity-form">
-            <input type="time" aria-label="Beginning time" value={activityForm.startTime} onChange={(event) => setActivityForm((current) => ({ ...current, startTime: event.target.value }))} />
-            <input type="time" aria-label="End time" value={activityForm.endTime} onChange={(event) => setActivityForm((current) => ({ ...current, endTime: event.target.value }))} />
-            <select aria-label="Calendar assignment" value={activityForm.calendar} onChange={(event) => setActivityForm((current) => ({ ...current, calendar: event.target.value as ScheduleCalendar }))}>
-              {(["Both", "Kids", "Parents"] as ScheduleCalendar[]).map((calendar) => <option key={calendar} value={calendar}>{calendar}</option>)}
-            </select>
-            <input placeholder="Activity title" value={activityForm.title} onChange={(event) => setActivityForm((current) => ({ ...current, title: event.target.value }))} />
-            <input placeholder="Optional note" value={activityForm.note} onChange={(event) => setActivityForm((current) => ({ ...current, note: event.target.value }))} />
-            <button onClick={addScheduleBlock}><Plus size={16} /> Add</button>
-          </div>
-          <ScheduleTimeline blocks={dayBlocks} onRemove={removeScheduleBlock} />
-        </div>
-
-        <div className="activity-shortlist">
-          <div className="activity-shortlist__header">
-            <Clock3 />
-            <div>
-              <h3>Activity ideas to add into the schedule</h3>
-              <p>Keep the day readable: add one core family activity, one stacked kids/parents block, and one dining anchor only where it improves the flow.</p>
-            </div>
-          </div>
-          <div className="experience-grid compact-grid">
-            {experiences.map((experience) => {
-              const Icon = experience.icon;
-              return (
-                <article key={experience.title} className="experience-card compact-card">
-                  <Icon />
-                  <Pill tone="sand">{experience.tag}</Pill>
-                  <h3>{experience.title}</h3>
-                  <strong>{experience.priority}</strong>
-                  <p>{experience.detail}</p>
-                  <QuickAddActivity experience={experience} selectedDay={selectedDay} onAdd={addBlockToSchedule} />
-                </article>
-              );
-            })}
-          </div>
-        </div>
-
-        <div className="restaurant-board">
-          <div className="restaurant-board__intro">
-            <Utensils />
-            <h3>Restaurant options to evaluate and add</h3>
-            <p>Nearby hotels are no longer side quests. Their restaurants now sit here as evaluated activity cards, so you can decide which table belongs in Kids, Parents, or Both schedules.</p>
-          </div>
-          <div className="experience-grid compact-grid restaurant-option-grid">
-            {restaurants.map((restaurant) => {
-              const Icon = restaurant.icon;
-              return (
-                <article key={restaurant.title} className="experience-card compact-card restaurant-option-card">
-                  <Icon />
-                  <Pill tone={restaurant.tag.includes("Verify") ? "coral" : restaurant.tag.includes("SLS") ? "green" : "sand"}>{restaurant.tag}</Pill>
-                  <h3>{restaurant.title}</h3>
-                  <strong>{restaurant.evaluation}</strong>
-                  <p><b>{restaurant.cuisine}</b> · {restaurant.bestFor}</p>
-                  <p>{restaurant.detail}</p>
-                  <QuickAddActivity experience={restaurant} selectedDay={selectedDay} onAdd={addBlockToSchedule} />
-                </article>
-              );
-            })}
-          </div>
+          <a href="/schedule" className="primary-link">Open activities calendar</a>
         </div>
       </section>
 
