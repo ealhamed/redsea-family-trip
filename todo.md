@@ -163,7 +163,7 @@
 ## GitHub publishing request — May 1
 
 - [x] Inspect current git status, remotes, and package scripts for the website project. Existing origin is the internal project remote; GitHub remote still needs to be added.
-- [ ] Create a private GitHub repository for the current website code unless an existing remote is already configured.
-- [ ] Push the current project state to GitHub.
+- [x] Create a private GitHub repository for the current website code unless an existing remote is already configured. Created private repo `ealhamed/redsea-family-trip`.
+- [x] Push the current project state to GitHub. Pushed branch `main` to the GitHub remote.
 - [ ] Attempt GitHub Pages setup if compatible with the static build and account permissions.
 - [ ] Verify and share the GitHub repository or Pages link.
