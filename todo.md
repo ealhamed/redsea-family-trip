@@ -158,4 +158,12 @@
 - [x] Prevent consecutive activities from visually overlapping or clipping important text. Browser measurement showed Lunch reset and Suite quiet time now have a 5.6 px gap instead of overlap.
 - [x] Verify mobile widths keep zero horizontal overflow and usable two-column schedule layout. Tested 320, 360, 390, and 430 px with 0 px horizontal overflow and BOTH cards spanning 100% of the combined timebox.
 - [x] Run TypeScript and production build validation. `pnpm check` and `pnpm build` passed after the shared-card update.
-- [ ] Save checkpoint for the shared BOTH-card no-overlap update.
+- [x] Save checkpoint for the shared BOTH-card no-overlap update. Version: 251d4853.
+
+## GitHub publishing request — May 1
+
+- [x] Inspect current git status, remotes, and package scripts for the website project. Existing origin is the internal project remote; GitHub remote still needs to be added.
+- [ ] Create a private GitHub repository for the current website code unless an existing remote is already configured.
+- [ ] Push the current project state to GitHub.
+- [ ] Attempt GitHub Pages setup if compatible with the static build and account permissions.
+- [ ] Verify and share the GitHub repository or Pages link.
