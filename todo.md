@@ -137,4 +137,15 @@
 - [x] Keep Kids/Parents two-column phone layout readable with smaller text and no horizontal scrolling.
 - [x] Ensure the hour timeline works across day selector states and daily activity cards.
 - [x] Validate TypeScript, production build, privacy wording, and phone-width overflow. TypeScript and production build passed; browser measurements confirmed timeline present and zero horizontal overflow at 320, 360, 390, and 430 px. Privacy wording scan only returned pre-existing intended family-travel wording already present before this timeline update.
-- [ ] Save checkpoint for the fixed daily timeline update.
+- [x] Save checkpoint for the fixed daily timeline update. Version: b0e8b05a.
+
+## Pixel-accurate schedule timeline alignment fix — May 1
+
+- [x] Inspect current /schedule timeline rail and activity card positioning implementation. Current issue: rail uses independent stacked rows while cards are normal-flow blocks, so they do not share a time scale.
+- [x] Convert the rail and cards to share one time-coordinate system with consistent pixels per hour. Implemented a shared minute-to-rem scale for the rail and activity cards.
+- [x] Align every activity card top edge to its actual start time on the left rail. Activity card top positions are calculated from start time relative to 7 AM.
+- [x] Ensure the timeline height stretches to cover the full day activity span without changing hourly spacing. Timeline now runs from 7 AM to 11 PM with equal 4.5rem hourly spacing.
+- [x] Preserve compact Kids/Parents two-column phone layout and zero horizontal overflow at 320–430 px. Browser automation confirmed 0 px overflow at 320, 360, 390, and 430 px.
+- [x] Run TypeScript and production build validation. `pnpm check` and `pnpm build` passed.
+- [x] Verify alignment and phone responsiveness in browser automation. 9 AM alignment measured within 0.01 px across phone widths, and all Thu visible activity starts measured 0 px off the shared time scale.
+- [ ] Save a new checkpoint for the corrected pixel-accurate timeline.

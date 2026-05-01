@@ -21,7 +21,30 @@ type ScheduleBlock = {
 };
 
 const days = ["Wed", "Thu", "Fri", "Sat"] as ScheduleBlock["day"][];
-const visibleHours = ["7 AM", "8 AM", "9 AM", "10 AM", "11 AM", "12 PM", "1 PM", "2 PM", "3 PM", "4 PM", "5 PM", "6 PM", "7 PM", "8 PM"];
+const dayStartHour = 7;
+const dayEndHour = 23;
+const hourMarks = Array.from({ length: dayEndHour - dayStartHour + 1 }, (_, index) => dayStartHour + index);
+const timelineMinuteRem = 0.075;
+const minimumCardRem = 4.75;
+
+function formatHour(hour: number) {
+  if (hour === 12) return "12 PM";
+  if (hour > 12) return `${hour - 12} PM`;
+  return `${hour} AM`;
+}
+
+function timeToMinutes(time: string) {
+  const [hours, minutes] = time.split(":").map(Number);
+  return hours * 60 + minutes;
+}
+
+function minutesFromDayStart(time: string) {
+  return Math.max(0, timeToMinutes(time) - dayStartHour * 60);
+}
+
+function blockDurationMinutes(block: ScheduleBlock) {
+  return Math.max(15, timeToMinutes(block.endTime) - timeToMinutes(block.startTime));
+}
 
 const defaultSchedule: ScheduleBlock[] = [
   { id: "wed-breakfast", day: "Wed", startTime: "07:30", endTime: "08:15", calendar: "Both", title: "Home breakfast", note: "Keep the morning simple before airport movement." },
@@ -77,8 +100,13 @@ function calendarForTag(tag: string): ScheduleCalendar {
 
 function TrackCard({ block, lane, onRemove }: { block: ScheduleBlock; lane: "Kids" | "Parents"; onRemove: (id: string) => void }) {
   const shared = block.calendar === "Both";
+  const startRem = minutesFromDayStart(block.startTime) * timelineMinuteRem;
+  const heightRem = Math.max(blockDurationMinutes(block) * timelineMinuteRem - 0.35, minimumCardRem);
   return (
-    <article className={`command-card command-card--${shared ? "both" : lane.toLowerCase()}`}>
+    <article
+      className={`command-card command-card--${shared ? "both" : lane.toLowerCase()}`}
+      style={{ top: `${startRem}rem`, height: `${heightRem}rem` }}
+    >
       <button onClick={() => onRemove(block.id)} aria-label={`Remove ${block.title}`}><Trash2 size={12} /></button>
       <span>{block.startTime}–{block.endTime}</span>
       <strong>{block.title}</strong>
@@ -117,6 +145,7 @@ export default function ScheduleCommand() {
 
   const kidsBlocks = dayBlocks.filter((block) => block.calendar === "Both" || block.calendar === "Kids");
   const parentsBlocks = dayBlocks.filter((block) => block.calendar === "Both" || block.calendar === "Parents");
+  const timelineHeightRem = (dayEndHour - dayStartHour) * 60 * timelineMinuteRem;
 
   const addBlockToSchedule = (block: Omit<ScheduleBlock, "id">) => {
     const safeEndTime = block.endTime > block.startTime ? block.endTime : block.startTime;
@@ -170,16 +199,24 @@ export default function ScheduleCommand() {
         <div className="command-day-board">
           <aside className="command-hour-rail" aria-label={`Fixed hour timeline for ${selectedDay}`}>
             <strong>{selectedDay}</strong>
-            {visibleHours.map((hour) => <span key={hour}>{hour}</span>)}
+            <div className="command-hour-map" style={{ height: `${timelineHeightRem}rem` }}>
+              {hourMarks.map((hour) => (
+                <span key={hour} style={{ top: `${(hour - dayStartHour) * 60 * timelineMinuteRem}rem` }}>{formatHour(hour)}</span>
+              ))}
+            </div>
           </aside>
           <div className="command-two-track">
             <section className="command-track command-track--kids" aria-label="Kids schedule">
               <h2><Baby size={15} /> Kids</h2>
-              {kidsBlocks.map((block) => <TrackCard key={`kids-${block.id}`} block={block} lane="Kids" onRemove={removeBlock} />)}
+              <div className="command-track-timebox" style={{ height: `${timelineHeightRem}rem` }}>
+                {kidsBlocks.map((block) => <TrackCard key={`kids-${block.id}`} block={block} lane="Kids" onRemove={removeBlock} />)}
+              </div>
             </section>
             <section className="command-track command-track--parents" aria-label="Parents schedule">
               <h2><ShieldCheck size={15} /> Parents</h2>
-              {parentsBlocks.map((block) => <TrackCard key={`parents-${block.id}`} block={block} lane="Parents" onRemove={removeBlock} />)}
+              <div className="command-track-timebox" style={{ height: `${timelineHeightRem}rem` }}>
+                {parentsBlocks.map((block) => <TrackCard key={`parents-${block.id}`} block={block} lane="Parents" onRemove={removeBlock} />)}
+              </div>
             </section>
           </div>
         </div>
